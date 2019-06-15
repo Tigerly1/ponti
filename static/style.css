@@ -1,0 +1,24 @@
+html,body{
+    height: 100%;
+}
+#phone{
+    position: relative;
+    height: 100%;
+    text-align: center;
+}
+button{
+    width: 50%;
+    height: 25%;
+    margin: 25%;
+}
+.inputCode{
+    width:20%;
+    height:10%;
+    font-size: 5vh;
+    text-align: center;
+}
+
+.middlel{
+    width:30%;
+    height:30%;
+}

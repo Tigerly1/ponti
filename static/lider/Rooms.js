@@ -1,6 +1,6 @@
 class Rooms {
     constructor() {
-        this.Lider = io.connect('http://localhost:3000/L')
+        this.Lider = io.connect('https://pontiapk.herokuapp.com/L') || io.connect('http://localhost:3000/L')
         siteL.beginning()
         this.tak = 0;
         this.nie = 0

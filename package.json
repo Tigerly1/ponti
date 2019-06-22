@@ -1,0 +1,26 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "package.json": "^2.0.1",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tigerly1/ponti.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tigerly1/ponti/issues"
+  },
+  "homepage": "https://github.com/Tigerly1/ponti#readme"
+}

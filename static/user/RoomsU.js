@@ -1,6 +1,6 @@
 class RoomsU {
     constructor() {
-        this.User = io.connect('https://pontiapk.herokuapp.com/U') || io.connect('http://localhost:3000/U')
+        this.User = io.connect('https://pontiapk.herokuapp.com/U')
         siteU.inputCode()
     }
     joinRoom(data) {

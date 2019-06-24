@@ -28,7 +28,6 @@ class SiteL {
             console.log(this.data)
             if (this.data == null)
                 rooms.createId()
-
             else this.liderChoice(this.data)
         })
         var img1 = new Image()
@@ -39,7 +38,6 @@ class SiteL {
             this.LiderSite = "CCM"
             if (this.data == null) {
                 this.beginning()
-
             }
             else this.close()
         })
@@ -71,18 +69,6 @@ class SiteL {
                 rooms.removeId(this.data)
                 this.data = null
             }
-
-            /* $.ajax({
-                url: "/ECR",
-                data: { data: this.data },
-                type: "POST",
-                success: (data) => {
-                    this.data = null
-                },
-                error: function (xhr, status, error) {
-                    console.log(xhr);
-                },
-            }); */
         })
     }
     liderChoice(data) {

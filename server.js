@@ -6,7 +6,6 @@ const io = require("socket.io")(server);
 var bodyParser = require("body-parser")
 app.use(express.static('static'))
 app.use(bodyParser.urlencoded({ extended: true }));
-var activeYesOrNo = false
 var liderTab = ["4092", "1212"]
 
 app.get('/L', function (req, res) {
@@ -26,8 +25,8 @@ app.get('/U', function (req, res) {
     }); */
 const Lider = io
     .of("/L")
-    .on('connection', (client) => {
-        client.on('EC', () => {
+    .on('connection', (lider) => {
+        lider.on('EC', () => {
             if (liderTab.length == 0) {
                 var eCode = EC()
                 liderTab.push(eCode)
@@ -43,26 +42,28 @@ const Lider = io
                 liderTab.push(eCode)
             }
             console.log(liderTab)
-            client.emit('connected', eCode)
+            lider.emit('connected', eCode)
         })
-        client.on('ECR', (data) => {
+        lider.on('ECR', (data) => {
             console.log('xd')
             liderTab.splice(liderTab.indexOf(data), 1)
         })
         console.log('Lider connected with code');
-        client.on("joinRoom", (room) => {
+        lider.on("joinRoom", (room) => {
             if (liderTab.includes(room)) {
                 console.log("L")
-                client.join(room)
-                client.on('TN', () => {
-                    activeYesOrNo = true
+                lider.join(room)
+                lider.on('yesOrNo', () => {
+                    lider.emit('success', 'DŻEBAĆ DISA')
+                    //let activeYesOrNo = true
+                    console.log('okej')
                     io.of("/U").in(room).emit('TN');
                 })
-                return client.emit('success', 'you succesfully joined this room')
+                lider.emit('success', ' succesfully joined this room')
             }
             else {
                 console.log("XD")
-                return client.emit("err", "no room here" + room)
+                return lider.emit("err", "no room here" + room)
             }
         })
     })
@@ -79,7 +80,7 @@ const User = io
                     console.log(data)
                     io.of("/L").in(room).emit('TlubN', data);
                 })
-                return client.emit('success', 'you succesfully joined this room')
+                return client.emit('success', 'xd succesfully joined this room')
             }
             else {
                 console.log("XD")

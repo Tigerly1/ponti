@@ -34,7 +34,7 @@ class Rooms {
         })
     }
     yesNoEvent() {
-        this.Lider.emit('TN', null)
+        this.Lider.emit('yesOrNo', null)
         this.Lider.on('TlubN', (data) => {
             console.log(data)
             if (data === "T") this.tak += 1

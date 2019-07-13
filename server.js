@@ -59,6 +59,9 @@ const Lider = io
                     console.log('okej')
                     io.of("/U").in(room).emit('TN');
                 })
+                lider.on('numberEvent', (data) => {
+                    console.log(data)
+                })
                 lider.emit('success', ' succesfully joined this room')
             }
             else {

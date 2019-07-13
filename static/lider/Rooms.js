@@ -50,4 +50,7 @@ class Rooms {
             this.nie = 0
         })
     }
+    numberEvent(maxVal, minVal) {
+        this.Lider.emit('numberEvent', { max: maxVal, min: minVal })
+    }
 }

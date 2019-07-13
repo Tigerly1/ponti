@@ -159,7 +159,8 @@ class SiteL {
             console.log('Max: ' + maxVal)
             console.log('Min: ' + minVal)
             $('#phone').empty()
-
+            rooms.numberEvent(maxVal, minVal)
         })
     }
+
 }

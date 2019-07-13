@@ -96,6 +96,7 @@ class SiteL {
         $(img2).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "R0F"
+            this.numberChoose()
         })
         var img3 = new Image()
         img3.src = "../img/lista.jpg"
@@ -137,5 +138,17 @@ class SiteL {
             this.LiderSite = "4R"
             this.liderChoice()
         })
+    }
+    numberChoose() {
+        for (let i = 0; i < 2; i++) {
+            let input = $('<input>')
+            let div = $('<div>')
+            let text = $('<p>')
+            if (i == 0) $(text).html('MAX')
+            else $(text).html('MIN')
+            div.append(text)
+            div.append(input)
+            $('#phone').append(div)
+        }
     }
 }

@@ -105,7 +105,7 @@ class SiteL {
             $("#phone").empty()
             this.LiderSite = "RCB"
         })
-        $("#phone").append("EC" + data)
+        $("#phone").append("EC" + this.data)
     }
     tNChoice() {
         var img = new Image()

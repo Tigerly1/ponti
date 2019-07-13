@@ -10,7 +10,9 @@ class SiteU {
             var input = $("<input  maxlength='1'>")
             $(input).addClass("inputCode")
             $("#phone").append(input)
+            if (i == 0) $(input).focus()
             $(input).on('input', () => {
+                if (i < 3) Array.from(document.querySelectorAll("input"))[i + 1].focus()
                 inputLen = 0
                 Array.from(document.querySelectorAll("input")).forEach((element, index) => {
                     inputLen += element.value.length

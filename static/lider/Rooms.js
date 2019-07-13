@@ -42,6 +42,7 @@ class Rooms {
             //siteL.tNRaport(tak, nie)
         })
         $("#report").on('click', () => {
+            this.Lider.off('TlubN')
             console.log(this.tak, this.nie)
             console.log('xd')
             siteL.tNRaport(this.tak, this.nie)

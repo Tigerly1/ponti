@@ -150,5 +150,16 @@ class SiteL {
             div.append(input)
             $('#phone').append(div)
         }
+        let button = $('<button>')
+        $(button).text('Continue')
+        $('#phone').append(button)
+        $(button).on('click', () => {
+            let maxVal = Array.from(document.querySelectorAll("input"))[0].value
+            let minVal = Array.from(document.querySelectorAll("input"))[1].value
+            console.log('Max: ' + maxVal)
+            console.log('Min: ' + minVal)
+            $('#phone').empty()
+
+        })
     }
 }

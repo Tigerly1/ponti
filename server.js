@@ -60,7 +60,9 @@ const Lider = io
                     io.of("/U").in(room).emit('TN');
                 })
                 lider.on('numberEvent', (data) => {
+                    io.of('/U').in(room).emit('numberChoose', data)
                     console.log(data)
+                    console.log('xd')
                 })
                 lider.emit('success', ' succesfully joined this room')
             }

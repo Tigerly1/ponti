@@ -39,6 +39,7 @@ class SiteU {
     }
     userScreen() {
         roomsU.tN()
+        roomsU.numberChoose()
         $("#phone").empty()
         let img = new Image()
         img.src = "../img/back.jpg"

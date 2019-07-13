@@ -24,4 +24,9 @@ class RoomsU {
         this.User.emit('TNRESULT', data)
         siteU.userScreen()
     }
+    numberChoose() {
+        this.User.on('numberChoose', data => {
+            console.log(data)
+        })
+    }
 }

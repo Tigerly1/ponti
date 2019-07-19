@@ -1,9 +1,11 @@
 class Rooms {
     constructor() {
         this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
+        //this.Lider = io.connect('http://localhost:3000/L')
         siteL.beginning()
         this.tak = 0;
         this.nie = 0
+        this.array = []
     }
 
 
@@ -50,7 +52,24 @@ class Rooms {
             this.nie = 0
         })
     }
-    numberEvent(maxVal, minVal) {
-        this.Lider.emit('numberEvent', { max: maxVal, min: minVal })
+    numberEvent(minVal, maxVal) {
+        this.Lider.emit('numberEvent', { min: minVal, max: maxVal })
+        this.Lider.on('number', (data) => {
+            this.array.push(data)
+            console.log(this.array)
+        })
+    }
+    numberEventResult() {
+        siteL.numberResult(this.array)
+    }
+    checkboxEvent(validation) {
+        this.Lider.emit('checkboxEvent', validation)
+        this.Lider.on('checkbox', (data) => {
+            this.array.push(data)
+            console.log(this.array)
+        })
+    }
+    checkboxEventResult() {
+        siteL.checkboxResult(this.array)
     }
 }

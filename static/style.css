@@ -1,5 +1,14 @@
+
 html,body{
     height: 100%;
+    margin: 0 auto;
+}
+* {
+    margin: 0 auto;
+}
+img {
+    width: 100%;
+
 }
 #phone{
     position: relative;
@@ -11,6 +20,7 @@ button{
     height: 25%;
     margin: 25%;
 }
+
 .inputCode{
     width:20%;
     height:10%;
@@ -21,4 +31,113 @@ button{
 .middlel{
     width:30%;
     height:30%;
+}
+
+.table{
+    margin: 10%;
+    font-size: 40px;
+    width:30%;
+    height: 12%;
+    border: 2px solid black;
+    display: block;
+}
+.borderWithNumber{
+    display:block;
+    font-size: 25px;
+    width: 100%;
+    height: 25%;
+    border: 2px solid black;
+    padding: 2%;
+    margin: 4%;
+    text-align: center;
+}
+
+#firstNumberResult{
+    position: relative;
+    float:left;
+    width: 30%;
+    height: 70%;
+    display: block;
+    background-color:red;
+}
+#twondNumberResult{
+    position: relative;
+    float:left;
+    width: 30%;
+    height: 70%;
+    display: block;
+    background-color:red;
+}
+#firstNumberResult{
+    position: relative;
+    float:left;
+    width: 30%;
+    height: 70%;
+    display: block;
+    background-color:blue;
+}
+#thirdNumberResult{
+
+    position: relative;
+    float:left;
+    width: 30%;
+    height: 70%;
+    display: block;
+    background-color:green;
+}
+
+#thirdNumberResult:first-child{
+    margin-top: 15%;
+
+}
+
+#checkboxCheck{
+    background-color: #94bdff;
+    width:70%;
+    height: 70%;
+    margin-left:15%;
+    position: relative;
+}
+
+#checkboxCheckU{
+    background-color: #94bdff;
+    width:70%;
+    height: 70%;
+    margin-left:15%;
+    position: relative;
+}
+#checkboxCheck>div:first-child{
+    position: relative;
+    display: block;
+    width:50%;
+    height: 100%;
+    float: left;
+    text-align: left;
+}
+#checkboxCheck>div:last-child{
+    position: relative;
+    display: block;
+    width:50%;
+    height: 100%;
+    float: left;
+    text-align: left;
+
+}
+.checkbox {
+    width: 13px;
+    margin: 3px;
+    height: 13px;
+    border: 1px solid black;
+    float:right;
+
+}
+.leftCheckboxes{
+    position: relative;
+    height: 15%;
+    width:100%;
+}
+.rightCheckboxes{
+    position: relative;
+    height: 8%;
+    width:100%;
 }

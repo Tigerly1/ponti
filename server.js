@@ -64,6 +64,9 @@ const Lider = io
                     console.log(data)
                     console.log('xd')
                 })
+                lider.on('checkboxEvent', (data) => {
+                    io.of('/U').in(room).emit('checkboxChoose', data)
+                })
                 lider.emit('success', ' succesfully joined this room')
             }
             else {
@@ -84,6 +87,12 @@ const User = io
                 client.on('TNRESULT', (data) => {
                     console.log(data)
                     io.of("/L").in(room).emit('TlubN', data);
+                })
+                client.on('numberChoosed', data => {
+                    io.of("/L").in(room).emit('number', data)
+                })
+                client.on('checkboxChoosed', data => {
+                    io.of("/L").in(room).emit('checkbox', data)
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

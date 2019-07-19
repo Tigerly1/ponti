@@ -1,6 +1,7 @@
 class RoomsU {
     constructor() {
         this.User = io.connect('https://pontiapk.herokuapp.com/U')
+        //this.User = io.connect('http://localhost:3000/U')
         siteU.inputCode()
     }
     joinRoom(data) {
@@ -27,6 +28,18 @@ class RoomsU {
     numberChoose() {
         this.User.on('numberChoose', data => {
             console.log(data)
+            siteU.numberChooseStart(data)
         })
+    }
+    numberChoosed(inputValue) {
+        this.User.emit('numberChoosed', inputValue)
+    }
+    checkboxChoose() {
+        this.User.on('checkboxChoose', data => {
+            siteU.checkboxChooseStart(data)
+        })
+    }
+    checkboxChoosed(data) {
+        this.User.emit('checkboxChoosed', data)
     }
 }

@@ -40,6 +40,7 @@ class SiteU {
     userScreen() {
         roomsU.tN()
         roomsU.numberChoose()
+        roomsU.checkboxChoose()
         $("#phone").empty()
         let img = new Image()
         img.src = "../img/back.jpg"
@@ -62,6 +63,12 @@ class SiteU {
     }
     tNStart() {
         $("#phone").empty()
+        let img = new Image()
+        img.src = "../img/back.jpg"
+        $('#phone').append(img)
+        $(img).on('click', () => {
+            this.userScreen()
+        })
         let img1 = new Image()
         img1.src = "../img/YES.jpg"
         $('#phone').append(img1)
@@ -78,5 +85,88 @@ class SiteU {
             data = "N"
             roomsU.tNResult(data)
         })
+    }
+    numberChooseStart(data) {
+        $("#phone").empty()
+        let img = new Image()
+        img.src = "../img/back.jpg"
+        $('#phone').append(img)
+        $(img).on('click', () => {
+            this.userScreen()
+        })
+        for (let i = 0; i < 4; i++) {
+            if (i < 3) var div = $('<div>')
+            if (i < 2) $(div).addClass('table')
+            let minVal = data.min
+            let maxVal = data.max
+            if (i == 0) $(div).html(minVal)
+            else if (i == 1) $(div).html(maxVal)
+            else if (i == 2) {
+                var input = $('<input>')
+                div.append(input)
+            }
+            else {
+                let button = $('<button>')
+                $(button).addClass('btn')
+                div.append(button)
+                button.on('click', () => {
+                    let inputVal = parseInt(document.querySelector('input').value)
+                    console.log(inputVal)
+                    console.log(minVal)
+                    console.log(maxVal)
+                    if (inputVal >= parseInt(minVal) && inputVal <= parseInt(maxVal)) {
+                        console.log('dziala')
+                        roomsU.numberChoosed(inputVal)
+                        this.userScreen()
+                    }
+                    else console.log('nie działa')
+                })
+                $('#phone').append(button)
+            }
+            if (i < 3) $('#phone').append(div)
+
+        }
+
+    }
+    checkboxChooseStart(data) {
+        $("#phone").empty()
+        let div = $('<div>')
+        $(div).attr('id', 'checkboxCheckU');
+        $("#phone").append(div)
+        var validation = ""
+        let tabLetters = ["A", "B", "C", "D", "E"]
+        var actualDiv1 = ''
+        var button = $('<button>')
+        $("#phone").append(button)
+        $(button).on('click', () => {
+            if (validation != "") {
+                $("#phone").empty()
+                roomsU.checkboxChoosed(validation)
+                this.userScreen()
+            }
+        })
+        var x = ""
+        if (typeof data == "string") x = tabLetters.indexOf(data) + 1
+        else x = data
+        for (let i = 0; i < x; i++) {
+            let div3 = $("<div>")
+            $(div3).addClass('leftCheckboxes')
+            let div4 = $('<div>')
+            $(div4).addClass('checkbox')
+            $(div3).on('click', () => {
+                if (actualDiv1 != undefined) $(actualDiv1).css({ "background-color": 'transparent' })
+                actualDiv1 = div4
+                $(div4).css({ "background-color": 'red' })
+                if (typeof data == "string") validation = tabLetters[i]
+                else validation = i
+                $(button).css({ "background-color": 'green' })
+            })
+            let p = $('<p>')
+            if (typeof data == "string") $(p).html(tabLetters[i])
+            else $(p).html(i)
+            $(div).append(div3)
+            $(div3).append(div4)
+            $(div3).append(p)
+        }
     }
 }

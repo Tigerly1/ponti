@@ -2,6 +2,9 @@ class SiteL {
     constructor() {
         this.LiderSite = "4L";
         this.data = null
+        this.max = 0
+        this.min = 0
+        this.validation = ""
     }
     beginning() {
         var img = new Image()
@@ -105,6 +108,7 @@ class SiteL {
         $(img3).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "RCB"
+            this.checkBox()
         })
         $("#phone").append("EC" + this.data)
     }
@@ -144,8 +148,8 @@ class SiteL {
             let input = $('<input>')
             let div = $('<div>')
             let text = $('<p>')
-            if (i == 0) $(text).html('MAX')
-            else $(text).html('MIN')
+            if (i == 0) $(text).html('MIN')
+            else $(text).html('MAX')
             div.append(text)
             div.append(input)
             $('#phone').append(div)
@@ -154,13 +158,222 @@ class SiteL {
         $(button).text('Continue')
         $('#phone').append(button)
         $(button).on('click', () => {
-            let maxVal = Array.from(document.querySelectorAll("input"))[0].value
-            let minVal = Array.from(document.querySelectorAll("input"))[1].value
-            console.log('Max: ' + maxVal)
+            let minVal = Array.from(document.querySelectorAll("input"))[0].value
+            let maxVal = Array.from(document.querySelectorAll("input"))[1].value
+            this.max = maxVal
+            this.min = minVal
             console.log('Min: ' + minVal)
+            console.log('Max: ' + maxVal)
             $('#phone').empty()
-            rooms.numberEvent(maxVal, minVal)
+            rooms.numberEvent(minVal, maxVal)
+            this.numberReport(minVal, maxVal)
         })
     }
+    numberReport() {
+        var img1 = new Image()
+        img1.id = "report"
+        img1.src = "../img/report.jpg"
+        $("#phone").append(img1)
+        $(img1).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "RROF"
+            rooms.numberEventResult()
+        })
+    }
+    numberResult(array) {
+        array.sort(function (a, b) { return a - b })
+        console.log(array)
+        console.log(this.min)
+        console.log(this.max)
+        var img2 = new Image()
+        img2.src = "../img/OK.jpg"
+        $("#phone").append(img2)
+        $(img2).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "4R"
+            this.liderChoice()
+        })
+        let IL = array.length
+        console.log(IL)
+        let MIN = Math.min(...array)
+        console.log(MIN)
+        let MAX = Math.max(...array)
+        console.log(MAX)
+        var AV = 0
+        array.map((el, i) => {
+            AV += el
+            if (i + 1 == IL) AV = Math.round(AV / IL)
+        })
+        console.log(AV)
+        let Q1 = (array[Math.floor((IL - 1) / 4)] + array[Math.floor((IL - 1) / 4 + 1)]) / 2
+        console.log(Q1)
+        let Q3 = (array[Math.floor((IL - 1) / 2 + (IL - 1) / 4)] + array[Math.floor((IL - 1) / 2 + (IL - 1) / 4 + 1)]) / 2
+        console.log(Q3)
+        if (IL % 2 == 0) {
+            var MED = (array[Math.floor((IL - 1) / 2)] + array[Math.floor((IL - 1) / 2 + 1)]) / 2
+        }
+        else {
+            var MED = array[Math.floor((IL - 1) / 2)]
+        }
+        console.log(MED)
+        for (let i = 0; i < 6; i++) {
+            let div = $('<div>')
+            $(div).addClass('borderWithNumber')
+            if (i == 0) {
+                var mainDiv1 = $('<div>')
+                $(mainDiv1).attr('id', 'firstNumberResult');
+                $("#phone").append(mainDiv1)
+                $(div).html(MIN)
+            }
+            if (i == 1) $(div).html(MED)
+            if (i == 2) $(div).html(MAX)
+            if (i < 3) $(mainDiv1).append(div)
+            if (i == 3) {
+                var mainDiv2 = $('<div>')
+                $(mainDiv2).attr('id', 'twondNumberResult');
+                $("#phone").append(mainDiv2)
+                var img2 = new Image()
+                img2.src = "../img/range.jpg"
+                $(mainDiv2).append(img2)
+            }
+            if (i == 4) {
+                var mainDiv3 = $('<div>')
+                $(mainDiv3).attr('id', 'thirdNumberResult');
+                $("#phone").append(mainDiv3)
+                $(div).html(Q1)
 
+            }
+            if (i == 5) $(div).html(Q3)
+            if (i > 3) $(mainDiv3).append(div)
+
+        }
+        let div = $('<div>')
+        $("#phone").append(div)
+        $(div).html(IL)
+    }
+    checkBox() {
+        let div = $('<div>')
+        $(div).attr('id', 'checkboxCheck');
+        $("#phone").append(div)
+        let div1 = $('<div>')
+        $(div1).attr('id', 'leftCheckboxCheck');
+        $(div).append(div1)
+        var validation = ""
+        let tabLetters = ["A", "B", "C", "D", "E"]
+        var actualDiv1 = ''
+        var actualDiv2 = ''
+        var button = $('<button>')
+        $("#phone").append(button)
+        $(button).on('click', () => {
+            if (validation > "A" || validation > 0) {
+                $("#phone").empty()
+                rooms.checkboxEvent(validation)
+                this.checkBoxWaiting(validation)
+            }
+
+        })
+        for (let i = 0; i < 5; i++) {
+            let div3 = $("<div>")
+            $(div3).addClass('leftCheckboxes')
+            let div4 = $('<div>')
+            $(div4).addClass('checkbox')
+            if (i > 0) {
+                $(div3).on('click', () => {
+                    if (actualDiv1 != undefined) $(actualDiv1).css({ "background-color": 'transparent' })
+                    if (actualDiv2 != undefined) $(actualDiv2).css({ "background-color": 'transparent' })
+                    actualDiv1 = div4
+                    $(div4).css({ "background-color": 'red' })
+                    validation = tabLetters[i]
+                    $(button).css({ "background-color": 'green' })
+                })
+            }
+            let p = $('<p>')
+            $(p).html(tabLetters[i])
+            $(div1).append(div3)
+            $(div3).append(div4)
+            $(div3).append(p)
+        }
+        let div2 = $('<div>')
+        $(div2).attr('id', 'rightCheckboxCheck');
+        $(div).append(div2)
+        for (let i = 0; i < 10; i++) {
+            let div3 = $("<div>")
+            $(div3).addClass('rightCheckboxes')
+            let div4 = $('<div>')
+            $(div4).addClass('checkbox')
+            if (i > 0) {
+                $(div3).on('click', () => {
+                    if (actualDiv1 != undefined) $(actualDiv1).css({ "background-color": 'transparent' })
+                    if (actualDiv2 != undefined) $(actualDiv2).css({ "background-color": 'transparent' })
+                    actualDiv2 = div4
+                    $(div4).css({ "background-color": 'red' })
+                    validation = i
+                    $(button).css({ "background-color": 'green' })
+                })
+            }
+            let p = $('<p>')
+            $(p).html(i)
+            $(div2).append(div3)
+            $(div3).append(div4)
+            $(div3).append(p)
+
+        }
+    }
+    checkBoxWaiting(validation) {
+        this.validation = validation
+        for (let i = 0; i < 2; i++) {
+            let div = $("<div>")
+            $(div).addClass("table")
+            console.log(typeof validation)
+            if (i == 0 && typeof validation == "string") $(div).html("A")
+            else if (i == 0 && typeof validation == "number") $(div).html("0")
+            if (i == 1) $(div).html(validation)
+            $('#phone').append(div)
+        }
+        var img1 = new Image()
+        img1.id = "report"
+        img1.src = "../img/report.jpg"
+        $("#phone").append(img1)
+        $(img1).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "RCB"
+            rooms.checkboxEventResult()
+        })
+    }
+    checkboxResult(array) {
+        var img2 = new Image()
+        img2.src = "../img/OK.jpg"
+        $("#phone").append(img2)
+        $(img2).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "4R"
+            this.liderChoice()
+        })
+        let div = $('<div>')
+        $(div).attr('id', 'checkboxCheckU');
+        $("#phone").append(div)
+        let tabLetters = ["A", "B", "C", "D", "E"]
+        var actualDiv1 = ''
+        var button = $('<button>')
+        $("#phone").append(button)
+        var x = ""
+        if (typeof this.validation == "string") x = tabLetters.indexOf(this.validation) + 1
+        else x = this.validation
+        for (let i = 0; i < x; i++) {
+            var filtered = array.filter((value) => {
+                if (typeof this.validation == "string") return value == tabLetters[i]
+                else return value == i
+            })
+            let div3 = $("<div>")
+            $(div3).addClass('leftCheckboxes')
+            let div4 = $('<div>')
+            $(div4).addClass('checkbox')
+            let p = $('<p>')
+            if (typeof this.validation == "string") $(p).html(tabLetters[i] + " : " + filtered.length)
+            else $(p).html(i + " : " + filtered.length)
+            $(div).append(div3)
+            $(div3).append(div4)
+            $(div3).append(p)
+        }
+    }
 }

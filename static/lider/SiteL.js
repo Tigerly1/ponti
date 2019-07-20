@@ -160,13 +160,15 @@ class SiteL {
         $(button).on('click', () => {
             let minVal = Array.from(document.querySelectorAll("input"))[0].value
             let maxVal = Array.from(document.querySelectorAll("input"))[1].value
-            this.max = maxVal
-            this.min = minVal
-            console.log('Min: ' + minVal)
-            console.log('Max: ' + maxVal)
-            $('#phone').empty()
-            rooms.numberEvent(minVal, maxVal)
-            this.numberReport(minVal, maxVal)
+            if (minVal >= 0 && maxVal > minVal) {
+                this.max = maxVal
+                this.min = minVal
+                console.log('Min: ' + minVal)
+                console.log('Max: ' + maxVal)
+                $('#phone').empty()
+                rooms.numberEvent(minVal, maxVal)
+                this.numberReport(minVal, maxVal)
+            }
         })
     }
     numberReport() {

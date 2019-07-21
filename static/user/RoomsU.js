@@ -2,11 +2,21 @@ class RoomsU {
     constructor() {
         this.User = io.connect('https://pontiapk.herokuapp.com/U')
         //this.User = io.connect('http://localhost:3000/U')
-        siteU.inputCode()
+        if (document.cookie != undefined) this.joinRoom(document.cookie)
+        else siteU.inputCode()
+    }
+    cookies(data) {
+        var d = new Date();
+        d.setTime(d.getTime() + (30 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = "=" + data + ";" + expires + ";path=/";
+        console.log(document.cookie)
     }
     joinRoom(data) {
         this.User.emit('joinRoom', data)
         this.User.on('success', (res) => {
+            console.log(data)
+            this.cookies(data)
             console.log(res)
             siteU.userScreen()
         })

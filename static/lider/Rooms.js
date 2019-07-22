@@ -2,13 +2,20 @@ class Rooms {
     constructor() {
         this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
         //this.Lider = io.connect('http://localhost:3000/L')
-        siteL.beginning()
+        if (document.cookie != undefined) this.createRoom(document.cookie)
+        else siteL.beginning()
         this.tak = 0;
         this.nie = 0
         this.array = []
     }
 
-
+    cookies(data) {
+        var d = new Date();
+        d.setTime(d.getTime() + (30 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = "=" + data + ";" + expires + ";path=/";
+        console.log(document.cookie)
+    }
     createId() {
         this.Lider.emit('EC')
         this.Lider.on('connected', (data) => {
@@ -24,9 +31,12 @@ class Rooms {
         this.Lider.emit('ECR', data)
     }
     createRoom(data) {
-        siteL.liderChoice(data)
         this.Lider.emit('joinRoom', data)
         this.Lider.on('success', (res) => {
+            siteL.setData(data)
+            siteL.liderChoice(data)
+            console.log(data)
+            this.cookies(data)
             console.log(res)
             this.Lider.off('success')
         })

@@ -13,7 +13,7 @@ class Rooms {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
-        document.cookie = "=" + data + "L;" + expires + ";path=/";
+        document.cookie = "code=" + data + "L;" + expires + ";path=/";
         console.log(document.cookie)
     }
     createId() {

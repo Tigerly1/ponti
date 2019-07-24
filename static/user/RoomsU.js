@@ -9,7 +9,7 @@ class RoomsU {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
-        document.cookie = "=" + data + "U;" + expires + ";path=/";
+        document.cookie = "code=" + data + "U;" + expires + ";path=/";
         console.log(document.cookie)
     }
     joinRoom(data) {

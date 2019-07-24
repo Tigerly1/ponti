@@ -2,7 +2,9 @@ class Rooms {
     constructor() {
         this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
         //this.Lider = io.connect('http://localhost:3000/L')
-        if (document.cookie.split("=")[1].join().split("")[4] == "L") this.createRoom(document.cookie.substring(0, 4))
+        if (document.cookie != "")
+            if (document.cookie.split("=")[1].split("")[4] == "L") this.createRoom(document.cookie.substring(5, 9))
+            else siteL.beginning()
         else siteL.beginning()
         this.tak = 0;
         this.nie = 0

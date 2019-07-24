@@ -74,6 +74,7 @@ class SiteU {
         $('#phone').append(img1)
         var data = ''
         $(img1).on('click', () => {
+            console.log("1")
             data = "T"
             roomsU.tNResult(data)
         })

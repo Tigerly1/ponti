@@ -2,9 +2,7 @@ class Rooms {
     constructor() {
         this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
         //this.Lider = io.connect('http://localhost:3000/L')
-        console.log(typeof document.cookie)
-        console.log(document.cookie)
-        if (document.cookie != undefined) this.createRoom(document.cookie)
+        if (document.cookie.split("")[4] == "L") this.createRoom(document.cookie.substring(0, 4))
         else siteL.beginning()
         this.tak = 0;
         this.nie = 0
@@ -15,7 +13,7 @@ class Rooms {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
-        document.cookie = "=" + data + ";" + expires + ";path=/";
+        document.cookie = "=" + data + "L;" + expires + ";path=/";
         console.log(document.cookie)
     }
     createId() {
@@ -30,6 +28,7 @@ class Rooms {
 
     removeId(data) {
         console.log(data)
+        document.cookie = ""
         this.Lider.emit('ECR', data)
     }
     createRoom(data) {
@@ -57,6 +56,7 @@ class Rooms {
         })
         $("#report").on('click', () => {
             this.Lider.off('TlubN')
+            $("#report").off('click')
             console.log(this.tak, this.nie)
             console.log('xd')
             siteL.tNRaport(this.tak, this.nie)
@@ -73,6 +73,7 @@ class Rooms {
     }
     numberEventResult() {
         siteL.numberResult(this.array)
+        this.Lider.off('number')
     }
     checkboxEvent(validation) {
         this.Lider.emit('checkboxEvent', validation)
@@ -83,5 +84,6 @@ class Rooms {
     }
     checkboxEventResult() {
         siteL.checkboxResult(this.array)
+        this.Lider.off('number')
     }
 }

@@ -4,8 +4,8 @@ class RoomsU {
         //this.User = io.connect('http://localhost:3000/U')
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "U") this.joinRoom(document.cookie.substring(5, 9))
-            else siteL.beginning()
-        else siteL.beginning()
+            else siteU.inputCode()
+        else siteU.inputCode()
     }
     cookies(data) {
         var d = new Date();

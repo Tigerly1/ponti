@@ -21,7 +21,10 @@ class SiteU {
                     }
                     inputLen += element.value.length
                     console.log(inputLen)
-                    if (inputLen == 4) $(submit).css('background-color', 'green')
+                    if (inputLen == 4) {
+                        $(submit).css('background-color', 'green')
+                        element.blur()
+                    }
                     if (inputLen < 4) $(submit).css('background-color', 'red')
                 })
             })

@@ -23,15 +23,27 @@ button {
     margin: 25%;
 }
 
-.inputCode {
-    width: 20%;
+.inputCodeEEC {
+    box-sizing: border-box;
+    width: 15%;
+    margin-right: 10%;
     height: 10%;
     font-size: 5vh;
     text-align: center;
+    border: 2px solid blue;
 }
 
-.enterEC {
-    margin-top: 18%;
+.inputCodeEEC:last-of-type {
+    margin-right: 5%;
+}
+
+.inputCodeEEC:first-of-type {
+    margin-left: 5%;
+}
+
+#pEEC {
+    padding-top: 18%;
+    margin-bottom: 5%;
 }
 
 .middlel {

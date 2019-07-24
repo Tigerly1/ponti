@@ -7,11 +7,11 @@ class SiteU {
         var submit = $("<button>")
         var p = $("<p>")
         $(p).html("Wprowadź EC")
-        $(p).addClass('enterEC')
+        $(p).attr('id', 'pEEC')
         $("#phone").append(p)
         for (let i = 0; i < 4; i++) {
             var input = $("<input  maxlength='1'>")
-            $(input).addClass("inputCode")
+            $(input).addClass("inputCodeEEC")
             $("#phone").append(input)
             if (i == 0) $(input).focus()
             $(input).on('input', () => {

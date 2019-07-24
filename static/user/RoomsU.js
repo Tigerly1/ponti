@@ -2,7 +2,7 @@ class RoomsU {
     constructor() {
         this.User = io.connect('https://pontiapk.herokuapp.com/U')
         //this.User = io.connect('http://localhost:3000/U')
-        if (document.cookie.split("")[4] == "U") this.joinRoom(document.cookie.substring(0, 4))
+        if (document.cookie.split("=")[1].join().split("")[4] == "U") this.joinRoom(document.cookie.substring(0, 4))
         else siteU.inputCode()
     }
     cookies(data) {

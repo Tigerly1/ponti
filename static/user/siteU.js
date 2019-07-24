@@ -12,9 +12,13 @@ class SiteU {
             $("#phone").append(input)
             if (i == 0) $(input).focus()
             $(input).on('input', () => {
-                if (i < 3) Array.from(document.querySelectorAll("input"))[i + 1].focus()
                 inputLen = 0
+                var a = 0
                 Array.from(document.querySelectorAll("input")).forEach((element, index) => {
+                    if (element.value == "" && a == 0) {
+                        element.focus()
+                        a++
+                    }
                     inputLen += element.value.length
                     console.log(inputLen)
                     if (inputLen == 4) $(submit).css('background-color', 'green')

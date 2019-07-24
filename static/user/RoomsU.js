@@ -29,6 +29,10 @@ class RoomsU {
             siteU.inputCode()
         })
     }
+    textSent(text) {
+        console.log(text)
+        this.User.emit('textDelivery', text)
+    }
     tN() {
         this.User.on('TN', () => {
             this.User.off('TN')

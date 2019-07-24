@@ -70,6 +70,42 @@ class SiteU {
         img3.src = "../img/liczba.jpg"
         $(img3).addClass('middlel')
         $('#phone').append(img3)
+        let img4 = new Image()
+        img4.src = "../img/ST.jpg"
+        $(img4).addClass('ST4A')
+        $('#phone').append(img4)
+        $(img4).on('click', () => {
+            this.text()
+        })
+    }
+    text() {
+        $("#phone").empty()
+        let img = new Image()
+        img.src = "../img/back.jpg"
+        $('#phone').append(img)
+        $(img).on('click', () => {
+            this.userScreen()
+        })
+        let div1 = $("<div>")
+        $(div1).attr('id', 'ST1')
+        let div2 = $("<div>")
+        $(div2).attr('id', 'ST2')
+        let textarea = $("<textarea maxlength=255>")
+        $(textarea).attr('id', 'ST3')
+        $(div2).append(textarea)
+        $(div1).append(div2)
+        $("#phone").append(div1)
+        $(textarea).focus()
+        let button = $('<button>')
+        $(button).attr('id', 'ST4')
+        $("#phone").append(button)
+        $(button).on('click', () => {
+            var x = document.querySelector("textarea").value
+            if (x.length > 0) {
+                roomsU.textSent(x)
+                this.userScreen()
+            }
+        })
     }
     tNStart() {
         $("#phone").empty()

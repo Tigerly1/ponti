@@ -48,7 +48,47 @@ button {
 
 .middlel {
     width: 30%;
-    height: 30%;
+    height: 25%;
+}
+
+.ST4A {
+    float: left;
+    width: 40%;
+    margin-left: 30%;
+    height: 35%
+}
+
+#ST1 {
+    box-sizing: border-box;
+    margin-left: 5%;
+    width: 90%;
+    height: 70%;
+    position: relative;
+    float: left;
+    border: 4px solid red;
+}
+
+#ST2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#ST3 {
+    text-align: justify;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#ST4 {
+    width: 60%;
+    height: 8%;
+    float: left;
+    margin: 0% 20% 0% 20%;
+    background-color: blue;
+    border: 1px solid yellow;
 }
 
 .table {

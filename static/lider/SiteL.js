@@ -111,6 +111,7 @@ class SiteL {
             this.checkBox()
         })
         $("#phone").append("EC" + this.data)
+        rooms.textDelivery()
     }
     tNChoice() {
         var img = new Image()

@@ -48,6 +48,13 @@ class Rooms {
             console.log(msg)
         })
     }
+    textDelivery() {
+        console.log('xdd')
+        this.Lider.on('textDelivered', (text) => {
+            console.log('no jest tutaj')
+            console.log(text)
+        })
+    }
     yesNoEvent() {
         this.Lider.emit('yesOrNo', null)
         this.Lider.on('TlubN', (data) => {

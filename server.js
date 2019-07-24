@@ -94,6 +94,9 @@ const User = io
                 client.on('checkboxChoosed', data => {
                     io.of("/L").in(room).emit('checkbox', data)
                 })
+                client.on('textDelivery', text => {
+                    io.of("/L").in(room).emit('textDelivered', text)
+                })
                 return client.emit('success', 'xd succesfully joined this room')
             }
             else {

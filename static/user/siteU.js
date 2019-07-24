@@ -5,7 +5,10 @@ class SiteU {
         $("#phone").empty()
         var inputLen = 0
         var submit = $("<button>")
-        $("#phone").append("<p>" + "Wprowadź EC")
+        var p = $("<p>")
+        $(p).html("Wprowadź EC")
+        $(p).addClass('enterEC')
+        $("#phone").append(p)
         for (let i = 0; i < 4; i++) {
             var input = $("<input  maxlength='1'>")
             $(input).addClass("inputCode")

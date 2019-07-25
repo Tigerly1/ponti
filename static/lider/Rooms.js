@@ -102,7 +102,7 @@ class Rooms {
         this.Lider.emit('getOnline')
         this.Lider.off('onGetOnline')
         this.Lider.on('onGetOnline', (data) => {
-            this.setOnline(data)
+            siteL.setOnline(data)
             this.numberEventResult()
         })
     }

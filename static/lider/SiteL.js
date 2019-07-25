@@ -151,7 +151,7 @@ class SiteL {
     raportRST() {
         $("#phone").empty()
         let img = new Image()
-        img.src = "../img/ok.jpg"
+        img.src = "../img/OK.jpg"
         $('#phone').append(img)
         $(img).on('click', () => {
             this.STTab.shift()

@@ -99,9 +99,11 @@ class Rooms {
         this.Lider.off('number')
     }
     online() {
+        console.log('getonline')
         this.Lider.emit('getOnline')
-        this.Lider.off('onGetOnline')
+        //this.Lider.off('onGetOnline')
         this.Lider.on('onGetOnline', (data) => {
+            console.log('xdd')
             siteL.setOnline(data)
             this.numberEventResult()
         })

@@ -53,7 +53,7 @@ const Lider = io
                 lider.on('getOnline', () => {
                     liderEverythingTab.forEach((element) => {
                         if (element.Ecode == room) {
-                            return lider.emit('onGetOnline', (element.online))
+                            lider.emit('onGetOnline', element.online)
                         }
                     })
                 })

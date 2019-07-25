@@ -82,6 +82,25 @@ button {
     border: none;
 }
 
+#R4 {
+    width: 15%;
+    height: 20%;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+
+#R4notifi {
+    box-sizing: border-box;
+    position: absolute;
+    width: 15%;
+    height: 20%;
+    left: 0;
+    bottom: 0%;
+    font-size: 7em;
+    color: rgb(7, 168, 7);
+}
+
 #ST4 {
     width: 60%;
     height: 8%;

@@ -5,6 +5,7 @@ class SiteL {
         this.max = 0
         this.min = 0
         this.validation = ""
+        this.STTab = []
     }
     beginning() {
         var img = new Image()
@@ -48,6 +49,22 @@ class SiteL {
     setData(data) {
         this.data = data
     }
+    setSTTab(res) {
+        this.STTab = res
+    }
+    setSTTabAppend(text) {
+        console.log(this.STTab)
+        if (this.STTab.length == 0) this.STTab = []
+        this.STTab.push(text)
+        if (this.LiderSite == '4R') {
+            $('#R4notifi').html(this.STTab.length)
+            $('#R4notifi').on("click", () => {
+                $("#phone").empty()
+                this.LiderSite = "RST"
+                this.raportRST()
+            })
+        }
+    }
     close() {
         var img = new Image()
         img.src = "../img/back.jpg"
@@ -69,12 +86,15 @@ class SiteL {
             this.LiderSite = "4L"
             this.beginning()
             if (this.data.length > 0) {
+                this.STTab = []
                 rooms.removeId(this.data)
                 this.data = null
             }
         })
     }
     liderChoice(data) {
+        $('#phone').empty()
+        this.LiderSite = "4R"
         var img = new Image()
         img.src = "../img/back.jpg"
         $("#phone").append(img)
@@ -110,8 +130,47 @@ class SiteL {
             this.LiderSite = "RCB"
             this.checkBox()
         })
+        var img4 = new Image()
+        img4.src = "../img/ST.jpg"
+        $(img4).attr('id', 'R4')
+        $("#phone").append(img4)
+        let div = $('<div>')
+        $(div).attr('id', 'R4notifi')
+        $(div).html(this.STTab.length)
+        $('#phone').append(div)
+        if (this.STTab.length > 0) {
+            $(div).on("click", () => {
+                $("#phone").empty()
+                this.LiderSite = "RST"
+                this.raportRST()
+            })
+        }
         $("#phone").append("EC" + this.data)
         rooms.textDelivery()
+    }
+    raportRST() {
+        $("#phone").empty()
+        let img = new Image()
+        img.src = "../img/ok.jpg"
+        $('#phone').append(img)
+        $(img).on('click', () => {
+            this.STTab.shift()
+            rooms.RSTShift()
+            if (this.STTab.length == 0) this.liderChoice()
+            else this.raportRST()
+        })
+        let div1 = $("<div>")
+        $(div1).attr('id', 'ST1')
+        let div2 = $("<div>")
+        $(div2).attr('id', 'ST2')
+        let textarea = $("<textarea maxlength=255 disabled>")
+        console.log(this.STTab[0])
+        $(textarea).html(this.STTab[0])
+        $(textarea).attr('id', 'ST3')
+        $(div2).append(textarea)
+        $(div1).append(div2)
+        $("#phone").append(div1)
+        $(textarea).focus()
     }
     tNChoice() {
         var img = new Image()

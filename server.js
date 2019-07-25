@@ -7,7 +7,10 @@ var bodyParser = require("body-parser")
 app.use(express.static('static'))
 app.use(bodyParser.urlencoded({ extended: true }));
 var liderTab = ["4092", "1212"]
-
+var liderEverythingTab = [{
+    eCode: '10000',
+    tabST: []
+}]
 app.get('/L', function (req, res) {
     res.sendFile(__dirname + '/static/lider.html');
 });
@@ -15,14 +18,6 @@ app.get('/L', function (req, res) {
 app.get('/U', function (req, res) {
     res.sendFile(__dirname + '/static/user.html');
 });
-/* io
-    .of('/L')
-    .on("connection", (client) => {
-        client.emit('news', { hello: 'world' });
-        client.on('my other event', function (data) {
-            console.log(data);
-        });
-    }); */
 const Lider = io
     .of("/L")
     .on('connection', (lider) => {
@@ -42,6 +37,8 @@ const Lider = io
                 liderTab.push(eCode)
             }
             console.log(liderTab)
+            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [] }
+            console.log(liderEverythingTab)
             lider.emit('connected', eCode)
         })
         lider.on('ECR', (data) => {
@@ -67,7 +64,17 @@ const Lider = io
                 lider.on('checkboxEvent', (data) => {
                     io.of('/U').in(room).emit('checkboxChoose', data)
                 })
-                lider.emit('success', ' succesfully joined this room')
+                lider.on('RSTShift', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.Ecode == room) element.tabST.shift()
+                    })
+                })
+                var tabST = ""
+                liderEverythingTab.forEach((element) => {
+                    if (element.Ecode == room) tabST = element.tabST
+                    return tabST
+                })
+                lider.emit('success', tabST)
             }
             else {
                 console.log("XD")
@@ -95,6 +102,13 @@ const User = io
                     io.of("/L").in(room).emit('checkbox', data)
                 })
                 client.on('textDelivery', text => {
+                    liderEverythingTab.forEach((element) => {
+                        console.log(element.eCode)
+                        console.log(element)
+                        console.log(room)
+                        if (element.eCode == room) element.tabST[element.tabST.length] = text
+                    })
+                    console.log(liderEverythingTab)
                     io.of("/L").in(room).emit('textDelivered', text)
                 })
                 return client.emit('success', 'xd succesfully joined this room')

@@ -36,6 +36,7 @@ class Rooms {
     createRoom(data) {
         this.Lider.emit('joinRoom', data)
         this.Lider.on('success', (res) => {
+            siteL.setSTTab(res)
             siteL.setData(data)
             siteL.liderChoice(data)
             console.log(data)
@@ -49,11 +50,13 @@ class Rooms {
         })
     }
     textDelivery() {
-        console.log('xdd')
         this.Lider.on('textDelivered', (text) => {
-            console.log('no jest tutaj')
-            console.log(text)
+            siteL.setSTTabAppend(text)
+
         })
+    }
+    RSTShift() {
+        this.Lider.emit('RSTShift')
     }
     yesNoEvent() {
         this.Lider.emit('yesOrNo', null)

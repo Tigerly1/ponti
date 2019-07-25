@@ -50,9 +50,9 @@ class Rooms {
         })
     }
     textDelivery() {
+        this.Lider.off('textDelivered')
         this.Lider.on('textDelivered', (text) => {
             siteL.setSTTabAppend(text)
-
         })
     }
     RSTShift() {

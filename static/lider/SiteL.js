@@ -6,6 +6,7 @@ class SiteL {
         this.min = 0
         this.validation = ""
         this.STTab = []
+        this.online = 0
     }
     beginning() {
         var img = new Image()
@@ -52,12 +53,16 @@ class SiteL {
     setSTTab(res) {
         this.STTab = res
     }
+    setOnline(online) {
+        this.online = online
+    }
     setSTTabAppend(text) {
         console.log(this.STTab)
         if (this.STTab.length == 0) this.STTab = []
-        this.STTab.push(text)
+        this.STTab.push(text.txt)
+        this.STTab.push(text.date)
         if (this.LiderSite == '4R') {
-            $('#R4notifi').html(this.STTab.length)
+            $('#R4notifi').html(this.STTab.length / 2)
             $('#R4notifi').on("click", () => {
                 $("#phone").empty()
                 this.LiderSite = "RST"
@@ -136,7 +141,7 @@ class SiteL {
         $("#phone").append(img4)
         let div = $('<div>')
         $(div).attr('id', 'R4notifi')
-        $(div).html(this.STTab.length)
+        $(div).html(this.STTab.length / 2)
         $('#phone').append(div)
         if (this.STTab.length > 0) {
             $(div).on("click", () => {
@@ -155,6 +160,7 @@ class SiteL {
         $('#phone').append(img)
         $(img).on('click', () => {
             this.STTab.shift()
+            this.STTab.shift()
             rooms.RSTShift()
             if (this.STTab.length == 0) this.liderChoice()
             else this.raportRST()
@@ -171,6 +177,9 @@ class SiteL {
         $(div1).append(div2)
         $("#phone").append(div1)
         $(textarea).focus()
+        let div3 = $('<div>')
+        $(div3).html(this.STTab[1])
+        $("#phone").append(div3)
     }
     tNChoice() {
         var img = new Image()
@@ -239,7 +248,7 @@ class SiteL {
         $(img1).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "RROF"
-            rooms.numberEventResult()
+            rooms.online()
         })
     }
     numberResult(array) {
@@ -312,6 +321,9 @@ class SiteL {
         let div = $('<div>')
         $("#phone").append(div)
         $(div).html(IL)
+        let div1 = $('<div>')
+        $("#phone").append(div1)
+        $(div1).html(this.online)
     }
     checkBox() {
         let div = $('<div>')

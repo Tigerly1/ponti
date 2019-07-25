@@ -1,7 +1,7 @@
 class RoomsU {
     constructor() {
-        this.User = io.connect('https://pontiapk.herokuapp.com/U')
-        //this.User = io.connect('http://localhost:3000/U')
+        //this.User = io.connect('https://pontiapk.herokuapp.com/U')
+        this.User = io.connect('http://localhost:3000/U')
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "U") this.joinRoom(document.cookie.substring(5, 9))
             else siteU.inputCode()
@@ -31,7 +31,8 @@ class RoomsU {
     }
     textSent(text) {
         console.log(text)
-        this.User.emit('textDelivery', text)
+        var date = new Date().toLocaleTimeString()
+        this.User.emit('textDelivery', { txt: text, date: date })
     }
     tN() {
         this.User.on('TN', () => {

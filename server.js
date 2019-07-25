@@ -37,7 +37,7 @@ const Lider = io
                 liderTab.push(eCode)
             }
             console.log(liderTab)
-            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [] }
+            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [], online: 0 }
             console.log(liderEverythingTab)
             lider.emit('connected', eCode)
         })
@@ -50,6 +50,13 @@ const Lider = io
             if (liderTab.includes(room)) {
                 console.log("L")
                 lider.join(room)
+                lider.on('getOnline', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.Ecode == room) {
+                            return lider.emit('onGetOnline', (element.online))
+                        }
+                    })
+                })
                 lider.on('yesOrNo', () => {
                     lider.emit('success', 'DŻEBAĆ DISA')
                     //let activeYesOrNo = true
@@ -66,7 +73,10 @@ const Lider = io
                 })
                 lider.on('RSTShift', () => {
                     liderEverythingTab.forEach((element) => {
-                        if (element.Ecode == room) element.tabST.shift()
+                        if (element.Ecode == room) {
+                            element.tabST.shift()
+                            element.tabST.shift()
+                        }
                     })
                 })
                 var tabST = ""
@@ -91,6 +101,11 @@ const User = io
             if (liderTab.includes(room)) {
                 console.log("U")
                 client.join(room)
+                liderEverythingTab.forEach((element) => {
+                    if (element.eCode == room) {
+                        element.online++
+                    }
+                })
                 client.on('TNRESULT', (data) => {
                     console.log(data)
                     io.of("/L").in(room).emit('TlubN', data);
@@ -101,15 +116,19 @@ const User = io
                 client.on('checkboxChoosed', data => {
                     io.of("/L").in(room).emit('checkbox', data)
                 })
-                client.on('textDelivery', text => {
+                client.on('textDelivery', date => {
+                    console.log(date)
                     liderEverythingTab.forEach((element) => {
                         console.log(element.eCode)
-                        console.log(element)
                         console.log(room)
-                        if (element.eCode == room) element.tabST[element.tabST.length] = text
+                        if (element.eCode == room) {
+                            element.tabST.push(date.txt)
+                            element.tabST.push(date.date)
+                        }
+                        console.log(element)
                     })
                     console.log(liderEverythingTab)
-                    io.of("/L").in(room).emit('textDelivered', text)
+                    io.of("/L").in(room).emit('textDelivered', date)
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

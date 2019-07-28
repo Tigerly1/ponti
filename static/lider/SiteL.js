@@ -9,6 +9,8 @@ class SiteL {
         this.online = 0
     }
     beginning() {
+        $("#phone").empty()
+        this.LiderSite = "OO"
         var img = new Image()
         img.src = "../img/lstart.jpg"
         var img1 = new Image()
@@ -17,12 +19,12 @@ class SiteL {
         $("#phone").append(img)
         $("#phone").append(img1)
         $(img1).on("click", () => {
-            $("#phone").empty()
-            this.LiderSite = "OC"
             this.choose()
         })
     }
     choose() {
+        $("#phone").empty()
+        this.LiderSite = "OC"
         var img = new Image()
         img.src = "../img/ENT.jpg"
         $("#phone").append(this.LiderSite)
@@ -39,8 +41,6 @@ class SiteL {
         img1.src = "../img/EXIT.jpg"
         $("#phone").append(img1)
         $(img1).on("click", () => {
-            $("#phone").empty()
-            this.LiderSite = "CCM"
             if (this.data == null) {
                 this.beginning()
             }
@@ -55,6 +55,7 @@ class SiteL {
     }
     setOnline(online) {
         this.online = online
+        console.log(this.online)
     }
     setSTTabAppend(text) {
         console.log(this.STTab)
@@ -71,6 +72,8 @@ class SiteL {
         }
     }
     close() {
+        $("#phone").empty()
+        this.LiderSite = "CCM"
         var img = new Image()
         img.src = "../img/back.jpg"
         $("#phone").append(img)
@@ -88,9 +91,10 @@ class SiteL {
         $("#phone").append(img2)
         $(img2).on("click", () => {
             $("#phone").empty()
-            this.LiderSite = "4L"
+            this.LiderSite = "OO"
             this.beginning()
             if (this.data.length > 0) {
+                document.cookie = "code= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
                 this.STTab = []
                 rooms.removeId(this.data)
                 this.data = null
@@ -151,10 +155,12 @@ class SiteL {
             })
         }
         $("#phone").append("EC" + this.data)
+        rooms.cookies(this.data, this.LiderSite)
         rooms.textDelivery()
     }
     raportRST() {
         $("#phone").empty()
+        this.LiderSite = "RST"
         let img = new Image()
         img.src = "../img/OK.jpg"
         $('#phone').append(img)
@@ -180,8 +186,10 @@ class SiteL {
         let div3 = $('<div>')
         $(div3).html(this.STTab[1])
         $("#phone").append(div3)
+        rooms.cookies(this.data, this.LiderSite)
     }
     tNChoice() {
+        this.liderChoice = "RYN"
         var img = new Image()
         img.src = "../img/TN.jpg"
         $("#phone").append(img)
@@ -194,8 +202,10 @@ class SiteL {
             $("#phone").empty()
             this.LiderSite = "YN"
         }) */
+        rooms.cookies(this.data, this.LiderSite)
     }
     tNRaport(tak, nie) {
+        this.liderChoice = "RRYN"
         $("#phone").empty()
         var img = new Image()
         img.src = "../img/YES.jpg"
@@ -211,8 +221,10 @@ class SiteL {
             this.LiderSite = "4R"
             this.liderChoice()
         })
+        rooms.cookies(this.data, this.LiderSite)
     }
     numberChoose() {
+        this.liderChoice = "ROF"
         for (let i = 0; i < 2; i++) {
             let input = $('<input>')
             let div = $('<div>')
@@ -239,8 +251,10 @@ class SiteL {
                 this.numberReport(minVal, maxVal)
             }
         })
+        rooms.cookies(this.data, this.LiderSite)
     }
     numberReport() {
+        this.liderChoice = "RROF"
         var img1 = new Image()
         img1.id = "report"
         img1.src = "../img/report.jpg"
@@ -250,8 +264,11 @@ class SiteL {
             this.LiderSite = "RROF"
             rooms.online()
         })
+        rooms.cookies(this.data, this.LiderSite)
     }
     numberResult(array) {
+        this.liderChoice = "RRORF"
+        console.log(this.online)
         array.sort(function (a, b) { return a - b })
         console.log(array)
         console.log(this.min)
@@ -324,8 +341,10 @@ class SiteL {
         let div1 = $('<div>')
         $("#phone").append(div1)
         $(div1).html(this.online)
+        rooms.cookies(this.data, this.LiderSite)
     }
     checkBox() {
+        this.liderChoice = "RCB"
         let div = $('<div>')
         $(div).attr('id', 'checkboxCheck');
         $("#phone").append(div)
@@ -392,8 +411,10 @@ class SiteL {
             $(div3).append(p)
 
         }
+        rooms.cookies(this.data, this.LiderSite)
     }
     checkBoxWaiting(validation) {
+        this.liderChoice = "RRCB"
         this.validation = validation
         for (let i = 0; i < 2; i++) {
             let div = $("<div>")
@@ -413,8 +434,10 @@ class SiteL {
             this.LiderSite = "RCB"
             rooms.checkboxEventResult()
         })
+        rooms.cookies(this.data, this.LiderSite)
     }
     checkboxResult(array) {
+        this.liderChoice = "RRRCB"
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
         $("#phone").append(img2)
@@ -449,5 +472,6 @@ class SiteL {
             $(div3).append(div4)
             $(div3).append(p)
         }
+        rooms.cookies(this.data, this.LiderSite)
     }
 }

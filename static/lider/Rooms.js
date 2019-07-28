@@ -11,11 +11,11 @@ class Rooms {
         this.array = []
     }
 
-    cookies(data) {
+    cookies(data, liderChoice) {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
-        document.cookie = "code=" + data + "L;" + expires + ";path=/";
+        document.cookie = "code=" + data + "L" + liderChoice + ";" + expires + ";path=/";
         console.log(document.cookie)
     }
     createId() {
@@ -38,9 +38,21 @@ class Rooms {
         this.Lider.on('success', (res) => {
             siteL.setSTTab(res)
             siteL.setData(data)
-            siteL.liderChoice(data)
+            if (document.cookie != "") {
+                if (document.cookie.split("=")[1].split("")[4] == "L") {
+                    if (document.cookie.substring(10) == "4R") siteL.liderChoice(data)
+                    else if (document.cookie.substring(10) == "RST") siteL.raportRST()
+                    else if (document.cookie.substring(10) == "RYN") siteL.tNChoice()
+                    else if (document.cookie.substring(10) == "RRYN") siteL.tNRaport()
+                    else if (document.cookie.substring(10) == "ROF") siteL.numberChoose()
+                    else if (document.cookie.substring(10) == "RROF") siteL.numberRaport()
+                    else if (document.cookie.substring(10) == "4R") siteL.raportRST()
+                }
+                else siteL.liderChoice(data)
+            }
+            else siteL.liderChoice(data)
+            console.log(document.cookie.substring(10))
             console.log(data)
-            this.cookies(data)
             console.log(res)
             this.Lider.off('success')
         })
@@ -99,11 +111,10 @@ class Rooms {
         this.Lider.off('number')
     }
     online() {
-        console.log('getonline')
         this.Lider.emit('getOnline')
-        //this.Lider.off('onGetOnline')
+        this.Lider.off('onGetOnline')
         this.Lider.on('onGetOnline', (data) => {
-            console.log('xdd')
+            console.log(data)
             siteL.setOnline(data)
             this.numberEventResult()
         })

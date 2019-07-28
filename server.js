@@ -51,8 +51,10 @@ const Lider = io
                 console.log("L")
                 lider.join(room)
                 lider.on('getOnline', () => {
+                    console.log("KURWA DZIALAJ")
                     liderEverythingTab.forEach((element) => {
-                        if (element.Ecode == room) {
+                        if (element.eCode == room) {
+                            console.log('XD')
                             lider.emit('onGetOnline', element.online)
                         }
                     })
@@ -73,7 +75,7 @@ const Lider = io
                 })
                 lider.on('RSTShift', () => {
                     liderEverythingTab.forEach((element) => {
-                        if (element.Ecode == room) {
+                        if (element.eCode == room) {
                             element.tabST.shift()
                             element.tabST.shift()
                         }
@@ -81,7 +83,7 @@ const Lider = io
                 })
                 var tabST = ""
                 liderEverythingTab.forEach((element) => {
-                    if (element.Ecode == room) tabST = element.tabST
+                    if (element.eCode == room) tabST = element.tabST
                     return tabST
                 })
                 lider.emit('success', tabST)
@@ -104,6 +106,7 @@ const User = io
                 liderEverythingTab.forEach((element) => {
                     if (element.eCode == room) {
                         element.online++
+                        console.log(liderEverythingTab)
                     }
                 })
                 client.on('TNRESULT', (data) => {
@@ -129,6 +132,14 @@ const User = io
                     })
                     console.log(liderEverythingTab)
                     io.of("/L").in(room).emit('textDelivered', date)
+                })
+                client.on('disconnect', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.online--
+                            console.log(liderEverythingTab)
+                        }
+                    })
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

@@ -35,7 +35,7 @@ class SiteL {
             console.log(this.data)
             if (this.data == null)
                 rooms.createId()
-            else this.liderChoice(this.data)
+            else this.liderChoice()
         })
         var img1 = new Image()
         img1.src = "../img/EXIT.jpg"
@@ -101,7 +101,7 @@ class SiteL {
             }
         })
     }
-    liderChoice(data) {
+    liderChoice() {
         $('#phone').empty()
         this.LiderSite = "4R"
         var img = new Image()
@@ -189,7 +189,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     tNChoice() {
-        this.liderChoice = "RYN"
+        this.LiderSite = "RYN"
         var img = new Image()
         img.src = "../img/TN.jpg"
         $("#phone").append(img)
@@ -205,7 +205,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     tNRaport(tak, nie) {
-        this.liderChoice = "RRYN"
+        this.LiderSite = "RRYN"
         $("#phone").empty()
         var img = new Image()
         img.src = "../img/YES.jpg"
@@ -224,7 +224,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     numberChoose() {
-        this.liderChoice = "ROF"
+        this.LiderSite = "ROF"
         for (let i = 0; i < 2; i++) {
             let input = $('<input>')
             let div = $('<div>')
@@ -254,7 +254,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     numberReport() {
-        this.liderChoice = "RROF"
+        this.LiderSite = "RROF"
         var img1 = new Image()
         img1.id = "report"
         img1.src = "../img/report.jpg"
@@ -267,7 +267,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     numberResult(array) {
-        this.liderChoice = "RRORF"
+        this.LiderSite = "RRORF"
         console.log(this.online)
         array.sort(function (a, b) { return a - b })
         console.log(array)
@@ -277,9 +277,11 @@ class SiteL {
         img2.src = "../img/OK.jpg"
         $("#phone").append(img2)
         $(img2).on("click", () => {
+            console.log(this)
             $("#phone").empty()
-            this.LiderSite = "4R"
             this.liderChoice()
+            this.LiderSite = "4R"
+
         })
         let IL = array.length
         console.log(IL)
@@ -344,7 +346,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     checkBox() {
-        this.liderChoice = "RCB"
+        this.LiderSite = "RCB"
         let div = $('<div>')
         $(div).attr('id', 'checkboxCheck');
         $("#phone").append(div)
@@ -414,7 +416,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     checkBoxWaiting(validation) {
-        this.liderChoice = "RRCB"
+        this.LiderSite = "RRCB"
         this.validation = validation
         for (let i = 0; i < 2; i++) {
             let div = $("<div>")
@@ -437,13 +439,14 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     checkboxResult(array) {
-        this.liderChoice = "RRRCB"
+        this.LiderSite = "RRRCB"
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
         $("#phone").append(img2)
         $(img2).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "4R"
+            console.log(this)
             this.liderChoice()
         })
         let div = $('<div>')

@@ -339,10 +339,10 @@ class SiteL {
         }
         let div = $('<div>')
         $("#phone").append(div)
-        $(div).html(IL)
+        $(div).html(AV)
         let div1 = $('<div>')
         $("#phone").append(div1)
-        $(div1).html(this.online)
+        $(div1).html(IL)
         rooms.cookies(this.data, this.LiderSite)
     }
     checkBox() {

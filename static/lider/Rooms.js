@@ -6,8 +6,6 @@ class Rooms {
             if (document.cookie.split("=")[1].split("")[4] == "L") this.createRoom(document.cookie.substring(5, 9))
             else siteL.beginning()
         else siteL.beginning()
-        this.tak = 0;
-        this.nie = 0
         this.array = []
     }
 
@@ -43,13 +41,13 @@ class Rooms {
                     if (document.cookie.substring(10) == "4R") siteL.liderChoice()
                     else if (document.cookie.substring(10) == "RST") siteL.raportRST()
                     else if (document.cookie.substring(10) == "RYN") siteL.tNChoice()
-                    else if (document.cookie.substring(10) == "RRYN") siteL.tNRaport()
+                    else if (document.cookie.substring(10) == "RRYN") this.yesNoEventResult()
                     else if (document.cookie.substring(10) == "ROF") siteL.numberChoose()
-                    else if (document.cookie.substring(10) == "RROF") siteL.numberRaport()
-                    else if (document.cookie.substring(10) == "RRORF") siteL.numberResult()
+                    else if (document.cookie.substring(10) == "RROF") this.numberWaitingForResult()
+                    else if (document.cookie.substring(10) == "RRORF") this.numberEventResult()
                     else if (document.cookie.substring(10) == "RCB") siteL.checkBox()
-                    else if (document.cookie.substring(10) == "RRCB") siteL.checkBoxWaiting()
-                    else if (document.cookie.substring(10) == "RRRCB") siteL.chechboxResult()
+                    else if (document.cookie.substring(10) == "RRCB") this.checkboxEventAwaiting()
+                    else if (document.cookie.substring(10) == "RRRCB") this.checkboxEventResult()
                 }
                 else siteL.liderChoice()
             }
@@ -75,43 +73,49 @@ class Rooms {
     }
     yesNoEvent() {
         this.Lider.emit('yesOrNo', null)
-        this.Lider.on('TlubN', (data) => {
-            console.log(data)
-            if (data === "T") this.tak += 1
-            else if (data === "N") this.nie += 1
-            //siteL.tNRaport(tak, nie)
-        })
-        $("#report").on('click', () => {
-            this.Lider.off('TlubN')
-            $("#report").off('click')
-            console.log(this.tak, this.nie)
-            console.log('xd')
-            siteL.tNRaport(this.tak, this.nie)
-            this.tak = 0
-            this.nie = 0
+    }
+    yesNoEventResult() {
+        console.log('yeSREPORT')
+        this.Lider.emit('yesReport')
+        this.Lider.on('yesReported', (data) => {
+            siteL.tNRaport(data)
         })
     }
     numberEvent(minVal, maxVal) {
         this.Lider.emit('numberEvent', { min: minVal, max: maxVal })
-        this.Lider.on('number', (data) => {
-            this.array.push(data)
-            console.log(this.array)
+    }
+    numberWaitingForResult() {
+        this.Lider.emit('numberEventWaiting')
+        this.Lider.off('numberEventAwaiting')
+        this.Lider.on('numberEventAwaiting', (data) => {
+            siteL.numberReport(data)
         })
     }
     numberEventResult() {
-        siteL.numberResult(this.array)
-        this.Lider.off('number')
+        this.Lider.emit('numberEventReport')
+        this.Lider.off('numberEventReported')
+        this.Lider.on('numberEventReported', (data) => {
+            siteL.numberResult(data)
+        })
     }
     checkboxEvent(validation) {
         this.Lider.emit('checkboxEvent', validation)
-        this.Lider.on('checkbox', (data) => {
-            this.array.push(data)
-            console.log(this.array)
+
+    }
+    checkboxEventAwaiting() {
+        this.Lider.emit('checkboxEventWaiting')
+        this.Lider.off('checkboxEventAWaiting')
+        this.Lider.on('checkboxEventAwaiting', (data) => {
+            siteL.checkboxWaiting(data)
         })
     }
     checkboxEventResult() {
-        siteL.checkboxResult(this.array)
-        this.Lider.off('number')
+        this.Lider.emit('checkboxEventReport')
+        this.Lider.off('checkboxEventReported')
+        this.Lider.on('checkboxEventReported', (data) => {
+            siteL.checkboxResult(data)
+        })
+
     }
     online() {
         this.Lider.emit('getOnline')

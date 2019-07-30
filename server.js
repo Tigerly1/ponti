@@ -37,7 +37,7 @@ const Lider = io
                 liderTab.push(eCode)
             }
             console.log(liderTab)
-            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [], online: 0 }
+            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [], yesNoTab: [0, 0], minNumber: 0, maxNumber: 0, numberTab: [], checkboxRange: "", checkboxTab: [], online: 0 }
             console.log(liderEverythingTab)
             lider.emit('connected', eCode)
         })
@@ -60,18 +60,73 @@ const Lider = io
                     })
                 })
                 lider.on('yesOrNo', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.yesNoTab = [0, 0]
+                        }
+                    })
                     lider.emit('success', 'DŻEBAĆ DISA')
                     //let activeYesOrNo = true
                     console.log('okej')
                     io.of("/U").in(room).emit('TN');
                 })
+                lider.on('yesReport', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            lider.emit('yesReported', element.yesNoTab)
+                        }
+                    })
+                })
                 lider.on('numberEvent', (data) => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.numberTab = []
+                            element.minNumber = data.min
+                            element.maxNumber = data.max
+                        }
+                    })
                     io.of('/U').in(room).emit('numberChoose', data)
                     console.log(data)
                     console.log('xd')
                 })
+                lider.on('numberEventWaiting', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            lider.emit('numberEventAwaiting', { min: element.minNumber, max: element.max })
+                        }
+                    })
+                })
+                lider.on('numberEventReport', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            lider.emit('numberEventReported', element.numberTab)
+                        }
+                    })
+                })
                 lider.on('checkboxEvent', (data) => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.checkboxRange = data
+                            element.checkboxTab = []
+                        }
+                    })
                     io.of('/U').in(room).emit('checkboxChoose', data)
+                })
+                lider.on('checkboxEventWaiting', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            lider.emit('checkboxEventAwaiting', element.checkboxRange)
+                        }
+                        console.log(liderEverythingTab)
+                    })
+                })
+                lider.on('checkboxEventReport', () => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            lider.emit('checkboxEventReported', { tab: element.checkboxTab, range: element.checkboxRange })
+                        }
+                    })
+                    console.log(liderEverythingTab)
                 })
                 lider.on('RSTShift', () => {
                     liderEverythingTab.forEach((element) => {
@@ -98,11 +153,13 @@ const Lider = io
 const User = io
     .of("/U")
     .on('connection', (client) => {
+        console.log(client.id)
         console.log('User connected with code');
         client.on("joinRoom", (room) => {
             if (liderTab.includes(room)) {
-                console.log("U")
                 client.join(room)
+                console.log(client.id)
+                console.log("U")
                 liderEverythingTab.forEach((element) => {
                     if (element.eCode == room) {
                         element.online++
@@ -110,14 +167,32 @@ const User = io
                     }
                 })
                 client.on('TNRESULT', (data) => {
-                    console.log(data)
-                    io.of("/L").in(room).emit('TlubN', data);
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+
+                            if (data == "T") element.yesNoTab[0] = element.yesNoTab[0] + 1
+                            else if (data == "N") element.yesNoTab[1] = element.yesNoTab[1] + 1
+                        }
+                    })
+                    console.log(liderEverythingTab)
+
+                    //io.of("/L").in(room).emit('TlubN', data);
                 })
                 client.on('numberChoosed', data => {
-                    io.of("/L").in(room).emit('number', data)
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.numberTab.push(data)
+                        }
+                    })
+                    //io.of("/L").in(room).emit('number', data)
                 })
                 client.on('checkboxChoosed', data => {
-                    io.of("/L").in(room).emit('checkbox', data)
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {
+                            element.checkboxTab.push(data)
+                        }
+                    })
+                    //io.of("/L").in(room).emit('checkbox', data)
                 })
                 client.on('textDelivery', date => {
                     console.log(date)

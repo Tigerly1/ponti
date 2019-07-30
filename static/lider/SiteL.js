@@ -2,8 +2,6 @@ class SiteL {
     constructor() {
         this.LiderSite = "4L";
         this.data = null
-        this.max = 0
-        this.min = 0
         this.validation = ""
         this.STTab = []
         this.online = 0
@@ -104,6 +102,7 @@ class SiteL {
     liderChoice() {
         $('#phone').empty()
         this.LiderSite = "4R"
+        document.title = this.data
         var img = new Image()
         img.src = "../img/back.jpg"
         $("#phone").append(img)
@@ -120,6 +119,7 @@ class SiteL {
             $("#phone").empty()
             this.LiderSite = "RYN"
             this.tNChoice()
+            rooms.yesNoEvent()
         })
         var img2 = new Image()
         img2.src = "../img/liczba.jpg"
@@ -137,7 +137,7 @@ class SiteL {
         $(img3).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "RCB"
-            this.checkBox()
+            this.checkbox()
         })
         var img4 = new Image()
         img4.src = "../img/ST.jpg"
@@ -197,22 +197,24 @@ class SiteL {
         img1.id = "report"
         img1.src = "../img/report.jpg"
         $("#phone").append(img1)
-        rooms.yesNoEvent()
+        $(img1).on('click', () => {
+            rooms.yesNoEventResult()
+        })
         /* $(img1).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "YN"
         }) */
         rooms.cookies(this.data, this.LiderSite)
     }
-    tNRaport(tak, nie) {
+    tNRaport(data) {
         this.LiderSite = "RRYN"
         $("#phone").empty()
         var img = new Image()
         img.src = "../img/YES.jpg"
-        $("#phone").append(img, String(tak))
+        $("#phone").append(img, String(data[0]))
         var img1 = new Image()
         img1.src = "../img/NO.jpg"
-        $("#phone").append(img1, String(nie))
+        $("#phone").append(img1, String(data[1]))
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
         $("#phone").append(img2)
@@ -248,12 +250,12 @@ class SiteL {
                 console.log('Max: ' + maxVal)
                 $('#phone').empty()
                 rooms.numberEvent(minVal, maxVal)
-                this.numberReport(minVal, maxVal)
+                rooms.numberWaitingForResult()
             }
         })
         rooms.cookies(this.data, this.LiderSite)
     }
-    numberReport() {
+    numberReport(data) {
         this.LiderSite = "RROF"
         var img1 = new Image()
         img1.id = "report"
@@ -345,7 +347,7 @@ class SiteL {
         $(div1).html(IL)
         rooms.cookies(this.data, this.LiderSite)
     }
-    checkBox() {
+    checkbox() {
         this.LiderSite = "RCB"
         let div = $('<div>')
         $(div).attr('id', 'checkboxCheck');
@@ -363,7 +365,7 @@ class SiteL {
             if (validation > "A" || validation > 0) {
                 $("#phone").empty()
                 rooms.checkboxEvent(validation)
-                this.checkBoxWaiting(validation)
+                rooms.checkboxEventAwaiting()
             }
 
         })
@@ -415,7 +417,7 @@ class SiteL {
         }
         rooms.cookies(this.data, this.LiderSite)
     }
-    checkBoxWaiting(validation) {
+    checkboxWaiting(validation) {
         this.LiderSite = "RRCB"
         this.validation = validation
         for (let i = 0; i < 2; i++) {
@@ -438,7 +440,9 @@ class SiteL {
         })
         rooms.cookies(this.data, this.LiderSite)
     }
-    checkboxResult(array) {
+    checkboxResult(data) {
+        var array = data.tab
+        var validation = data.range
         this.LiderSite = "RRRCB"
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
@@ -457,11 +461,11 @@ class SiteL {
         var button = $('<button>')
         $("#phone").append(button)
         var x = ""
-        if (typeof this.validation == "string") x = tabLetters.indexOf(this.validation) + 1
-        else x = this.validation
+        if (typeof validation == "string") x = tabLetters.indexOf(validation) + 1
+        else x = validation
         for (let i = 0; i < x; i++) {
             var filtered = array.filter((value) => {
-                if (typeof this.validation == "string") return value == tabLetters[i]
+                if (typeof validation == "string") return value == tabLetters[i]
                 else return value == i
             })
             let div3 = $("<div>")
@@ -469,7 +473,7 @@ class SiteL {
             let div4 = $('<div>')
             $(div4).addClass('checkbox')
             let p = $('<p>')
-            if (typeof this.validation == "string") $(p).html(tabLetters[i] + " : " + filtered.length)
+            if (typeof validation == "string") $(p).html(tabLetters[i] + " : " + filtered.length)
             else $(p).html(i + " : " + filtered.length)
             $(div).append(div3)
             $(div3).append(div4)

@@ -154,6 +154,14 @@ class SiteL {
                 this.raportRST()
             })
         }
+        var img5 = new Image()
+        img5.src = "../img/online.jpg"
+        $(img5).attr('id', 'online4R')
+        $("#phone").append(img5)
+        let div = $('<div>')
+        $(div).attr('id', 'R4online')
+        $(div).html(0 || this.online)
+        $('#phone').append(div)
         $("#phone").append("EC" + this.data)
         rooms.cookies(this.data, this.LiderSite)
         rooms.textDelivery()

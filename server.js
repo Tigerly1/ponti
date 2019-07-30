@@ -51,7 +51,6 @@ const Lider = io
                 console.log("L")
                 lider.join(room)
                 lider.on('getOnline', () => {
-                    console.log("KURWA DZIALAJ")
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
                             console.log('XD')
@@ -163,6 +162,7 @@ const User = io
                 liderEverythingTab.forEach((element) => {
                     if (element.eCode == room) {
                         element.online++
+                        io.of("/L").in(room).emit('onlineDelivery', element.online)
                         console.log(liderEverythingTab)
                     }
                 })
@@ -212,7 +212,7 @@ const User = io
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
                             element.online--
-                            console.log(liderEverythingTab)
+                            io.of("/L").in(room).emit('onlineDelivery', element.online)
                         }
                     })
                 })

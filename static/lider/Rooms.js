@@ -34,6 +34,7 @@ class Rooms {
     createRoom(data) {
         this.Lider.emit('joinRoom', data)
         this.Lider.on('success', (res) => {
+
             siteL.setSTTab(res)
             siteL.setData(data)
             if (document.cookie != "") {
@@ -60,6 +61,12 @@ class Rooms {
         this.Lider.on('err', (msg) => {
             this.Lider.off('err')
             console.log(msg)
+        })
+    }
+    onlineDelivery() {
+        this.Lider.off('onlineDelivery')
+        this.Lider.on('onlineDelivery', (data) => {
+            siteL.setOnline(data)
         })
     }
     textDelivery() {
@@ -125,5 +132,8 @@ class Rooms {
             siteL.setOnline(data)
             this.numberEventResult()
         })
+    }
+    updateOnline() {
+
     }
 }

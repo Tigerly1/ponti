@@ -47,13 +47,16 @@ class SiteL {
     }
     setData(data) {
         this.data = data
+
     }
     setSTTab(res) {
         this.STTab = res
     }
     setOnline(online) {
         this.online = online
-        console.log(this.online)
+        if (this.LiderSite == "4R") {
+            $("#R4online").html(this.online)
+        }
     }
     setSTTabAppend(text) {
         console.log(this.STTab)
@@ -100,6 +103,7 @@ class SiteL {
         })
     }
     liderChoice() {
+        rooms.onlineDelivery()
         $('#phone').empty()
         this.LiderSite = "4R"
         document.title = this.data
@@ -160,7 +164,7 @@ class SiteL {
         $("#phone").append(img5)
         let div2 = $('<div>')
         $(div2).attr('id', 'R4online')
-        $(div2).html(0 || this.online)
+        $(div2).html(this.online)
         $('#phone').append(div2)
         $("#phone").append("EC" + this.data)
         rooms.cookies(this.data, this.LiderSite)

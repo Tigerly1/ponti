@@ -13,7 +13,6 @@ class SiteL {
         img.src = "../img/lstart.jpg"
         var img1 = new Image()
         img1.src = "../img/arrow.jpg"
-        $("#phone").append(this.LiderSite)
         $("#phone").append(img)
         $("#phone").append(img1)
         $(img1).on("click", () => {
@@ -344,6 +343,7 @@ class SiteL {
                 var mainDiv3 = $('<div>')
                 $(mainDiv3).attr('id', 'thirdNumberResult');
                 $("#phone").append(mainDiv3)
+                $(div).attr('id', 'margin15')
                 $(div).html(Q1)
 
             }
@@ -469,12 +469,9 @@ class SiteL {
         $(div).attr('id', 'checkboxCheckU');
         $("#phone").append(div)
         let tabLetters = ["A", "B", "C", "D", "E"]
-        var actualDiv1 = ''
-        var button = $('<button>')
-        $("#phone").append(button)
         var x = ""
         if (typeof validation == "string") x = tabLetters.indexOf(validation) + 1
-        else x = validation
+        else x = validation + 1
         for (let i = 0; i < x; i++) {
             var filtered = array.filter((value) => {
                 if (typeof validation == "string") return value == tabLetters[i]
@@ -482,13 +479,10 @@ class SiteL {
             })
             let div3 = $("<div>")
             $(div3).addClass('leftCheckboxes')
-            let div4 = $('<div>')
-            $(div4).addClass('checkbox')
             let p = $('<p>')
             if (typeof validation == "string") $(p).html(tabLetters[i] + " : " + filtered.length)
             else $(p).html(i + " : " + filtered.length)
             $(div).append(div3)
-            $(div3).append(div4)
             $(div3).append(p)
         }
         rooms.cookies(this.data, this.LiderSite)

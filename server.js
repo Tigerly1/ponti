@@ -42,6 +42,7 @@ const Lider = io
             lider.emit('connected', eCode)
         })
         lider.on('ECR', (data) => {
+            lider.leave(data)
             console.log('xd')
             liderTab.splice(liderTab.indexOf(data), 1)
         })
@@ -65,7 +66,6 @@ const Lider = io
                         }
                     })
                     lider.emit('success', 'DŻEBAĆ DISA')
-                    //let activeYesOrNo = true
                     console.log('okej')
                     io.of("/U").in(room).emit('TN');
                 })
@@ -85,8 +85,6 @@ const Lider = io
                         }
                     })
                     io.of('/U').in(room).emit('numberChoose', data)
-                    console.log(data)
-                    console.log('xd')
                 })
                 lider.on('numberEventWaiting', () => {
                     liderEverythingTab.forEach((element) => {
@@ -116,7 +114,6 @@ const Lider = io
                         if (element.eCode == room) {
                             lider.emit('checkboxEventAwaiting', element.checkboxRange)
                         }
-                        console.log(liderEverythingTab)
                     })
                 })
                 lider.on('checkboxEventReport', () => {
@@ -125,7 +122,6 @@ const Lider = io
                             lider.emit('checkboxEventReported', { tab: element.checkboxTab, range: element.checkboxRange })
                         }
                     })
-                    console.log(liderEverythingTab)
                 })
                 lider.on('RSTShift', () => {
                     liderEverythingTab.forEach((element) => {
@@ -136,11 +132,14 @@ const Lider = io
                     })
                 })
                 var tabST = ""
+                var online = 0
                 liderEverythingTab.forEach((element) => {
-                    if (element.eCode == room) tabST = element.tabST
-                    return tabST
+                    if (element.eCode == room) {
+                        tabST = element.tabST
+                        online = element.online
+                    }
                 })
-                lider.emit('success', tabST)
+                lider.emit('success', { text: tabST, online: online })
             }
             else {
                 console.log("XD")
@@ -157,8 +156,9 @@ const User = io
         client.on("joinRoom", (room) => {
             if (liderTab.includes(room)) {
                 client.join(room)
-                console.log(client.id)
-                console.log("U")
+                console.log("----")
+                console.log(client)
+                console.log("----")
                 liderEverythingTab.forEach((element) => {
                     if (element.eCode == room) {
                         element.online++
@@ -209,12 +209,14 @@ const User = io
                     io.of("/L").in(room).emit('textDelivered', date)
                 })
                 client.on('disconnect', () => {
+                    console.log('dziala')
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
                             element.online--
                             io.of("/L").in(room).emit('onlineDelivery', element.online)
                         }
                     })
+                    client.leave(room)
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

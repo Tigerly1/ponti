@@ -56,6 +56,7 @@ class SiteU {
         img.src = "../img/back.jpg"
         $('#phone').append(img)
         $(img).on('click', () => {
+            roomsU.leave()
             this.inputCode()
         })
         let img1 = new Image()
@@ -108,6 +109,7 @@ class SiteU {
         })
     }
     tNStart() {
+        console.log('tNSTART')
         $("#phone").empty()
         let img = new Image()
         img.src = "../img/back.jpg"

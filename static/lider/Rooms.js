@@ -1,14 +1,19 @@
 class Rooms {
     constructor() {
-        this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
-        //this.Lider = io.connect('http://localhost:3000/L')
+        var host = 'ponti'
+        this.Lider = this.io(host)
+        //this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
+        this.Lider = io.connect('http://localhost:3000/L')
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "L") this.createRoom(document.cookie.substring(5, 9))
             else siteL.beginning()
         else siteL.beginning()
         this.array = []
     }
-
+    io(host) {
+        if (host == "localhost") return io.connect('http://localhost:3000/U')
+        else if (host == 'ponti') return io.connect('https://pontiapk.herokuapp.com/U')
+    }
     cookies(data, liderChoice) {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 60 * 1000));
@@ -34,9 +39,9 @@ class Rooms {
     createRoom(data) {
         this.Lider.emit('joinRoom', data)
         this.Lider.on('success', (res) => {
-
-            siteL.setSTTab(res)
+            siteL.setSTTab(res.text)
             siteL.setData(data)
+            siteL.setOnline(res.online)
             if (document.cookie != "") {
                 if (document.cookie.split("=")[1].split("")[4] == "L") {
                     if (document.cookie.substring(10) == "4R") siteL.liderChoice()
@@ -53,9 +58,6 @@ class Rooms {
                 else siteL.liderChoice()
             }
             else siteL.liderChoice()
-            console.log(document.cookie.substring(10))
-            console.log(data)
-            console.log(res)
             this.Lider.off('success')
         })
         this.Lider.on('err', (msg) => {

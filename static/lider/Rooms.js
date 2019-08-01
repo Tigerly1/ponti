@@ -2,8 +2,6 @@ class Rooms {
     constructor() {
         var host = 'ponti'
         this.Lider = this.io(host)
-        //this.Lider = io.connect('https://pontiapk.herokuapp.com/L')
-        this.Lider = io.connect('http://localhost:3000/L')
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "L") this.createRoom(document.cookie.substring(5, 9))
             else siteL.beginning()

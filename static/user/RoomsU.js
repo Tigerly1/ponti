@@ -9,7 +9,7 @@ class RoomsU {
     }
     io(host) {
         if (host == "localhost") return io.connect('http://localhost:3000/U')
-        else if (host == "ponti") io.connect('https://pontiapk.herokuapp.com/U')
+        else if (host == "ponti") return io.connect('https://pontiapk.herokuapp.com/U')
     }
     cookies(data) {
         var d = new Date();

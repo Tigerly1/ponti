@@ -1,6 +1,6 @@
 class Rooms {
     constructor() {
-        var host = 'ponti'
+        var host = "ponti"
         this.Lider = this.io(host)
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "L") this.createRoom(document.cookie.substring(5, 9))
@@ -9,8 +9,8 @@ class Rooms {
         this.array = []
     }
     io(host) {
-        if (host == "localhost") return io.connect('http://localhost:3000/U')
-        else if (host == 'ponti') return io.connect('https://pontiapk.herokuapp.com/U')
+        if (host == "localhost") return io.connect('http://localhost:3000/L')
+        else if (host == "ponti") return io.connect('https://pontiapk.herokuapp.com/L')
     }
     cookies(data, liderChoice) {
         var d = new Date();

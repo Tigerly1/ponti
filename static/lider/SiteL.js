@@ -11,8 +11,10 @@ class SiteL {
         this.LiderSite = "OO"
         var img = new Image()
         img.src = "../img/lstart.jpg"
+        $(img).css("height", "80%")
         var img1 = new Image()
         img1.src = "../img/arrow.jpg"
+        $(img1).css("height", "20%")
         $("#phone").append(img)
         $("#phone").append(img1)
         $(img1).on("click", () => {
@@ -24,7 +26,8 @@ class SiteL {
         this.LiderSite = "OC"
         var img = new Image()
         img.src = "../img/ENT.jpg"
-        $("#phone").append(this.LiderSite)
+        $(img).css("margin-top", "12.5%")
+        $(img).css("height", "40%")
         $("#phone").append(img)
         $(img).on("click", () => {
             $("#phone").empty()
@@ -36,6 +39,7 @@ class SiteL {
         })
         var img1 = new Image()
         img1.src = "../img/EXIT.jpg"
+        $(img1).css("height", "40%")
         $("#phone").append(img1)
         $(img1).on("click", () => {
             if (this.data == null) {
@@ -203,10 +207,12 @@ class SiteL {
         this.LiderSite = "RYN"
         var img = new Image()
         img.src = "../img/TN.jpg"
+        $(img).css("height", "80%")
         $("#phone").append(img)
         var img1 = new Image()
         img1.id = "report"
         img1.src = "../img/report.jpg"
+        $(img1).css("height", "20%")
         $("#phone").append(img1)
         $(img1).on('click', () => {
             rooms.yesNoEventResult()
@@ -220,14 +226,33 @@ class SiteL {
     tNRaport(data) {
         this.LiderSite = "RRYN"
         $("#phone").empty()
-        var img = new Image()
-        img.src = "../img/YES.jpg"
-        $("#phone").append(img, String(data[0]))
-        var img1 = new Image()
-        img1.src = "../img/NO.jpg"
-        $("#phone").append(img1, String(data[1]))
+        for (let i = 0; i < 2; i++) {
+            let div = $('<div>')
+            $(div).css('position', 'relative')
+            $(div).css('width', '100%')
+            $(div).css('height', '40%')
+            $(div).css('display', 'inline-block')
+            $('#phone').append(div)
+            var img = new Image()
+            if (i == 0) img.src = "../img/YES.jpg"
+            else img.src = "../img/NO.jpg"
+            $(img).css("height", "100%")
+            $(img).css("width", "50%")
+            $(img).css("float", "left")
+            $(div).append(img)
+            let p = $('<p>')
+            $(p).html(data[0])
+            $(p).css('width', '30%')
+            $(p).css('height', '40%')
+            $(p).css('border', '2px solid black')
+            $(p).css('font-size', '3em')
+            $(p).css('margin', '15% 0% 15% 15%')
+            $(p).css('float', 'left')
+            $(div).append(p)
+        }
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
+        $(img2).css("height", "20%")
         $("#phone").append(img2)
         $(img2).on("click", () => {
             $("#phone").empty()
@@ -237,6 +262,14 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     numberChoose() {
+        var img = new Image()
+        img.src = "../img/back.jpg"
+        $("#phone").append(img)
+        $(img).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "4R"
+            this.liderChoice()
+        })
         this.LiderSite = "ROF"
         for (let i = 0; i < 2; i++) {
             let input = $('<input>')

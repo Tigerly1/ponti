@@ -49,7 +49,7 @@ button {
 
 .middlel {
     width: 30%;
-    height: 25%;
+    height: 50%;
 }
 
 #online4R {
@@ -71,9 +71,13 @@ button {
 
 .ST4A {
     float: left;
-    width: 40%;
-    margin-left: 30%;
-    height: 35%
+    width: 80%;
+    margin-left: 10%;
+    height: 50%
+}
+
+textarea {
+    font-size: 1.4em;
 }
 
 #ST1 {

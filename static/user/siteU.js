@@ -59,18 +59,7 @@ class SiteU {
             roomsU.leave()
             this.inputCode()
         })
-        let img1 = new Image()
-        img1.src = "../img/TN.jpg"
-        $(img1).addClass('middlel')
-        $('#phone').append(img1)
-        let img2 = new Image()
-        img2.src = "../img/lista.jpg"
-        $(img2).addClass('middlel')
-        $('#phone').append(img2)
-        let img3 = new Image()
-        img3.src = "../img/liczba.jpg"
-        $(img3).addClass('middlel')
-        $('#phone').append(img3)
+
         let img4 = new Image()
         img4.src = "../img/ST.jpg"
         $(img4).addClass('ST4A')

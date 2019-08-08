@@ -43,6 +43,7 @@ const Lider = io
         })
         lider.on('ECR', (data) => {
             lider.leave(data)
+            io.of('/U').in(data).emit('disconnected')
             console.log('xd')
             liderTab.splice(liderTab.indexOf(data), 1)
         })

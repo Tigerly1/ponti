@@ -110,12 +110,14 @@ class SiteU {
         img1.src = "../img/YES.jpg"
         $('#phone').append(img1)
         var data = ''
+        $(img1).css('width', '50%')
         $(img1).on('click', () => {
             console.log("1")
             data = "T"
             roomsU.tNResult(data)
         })
         let img2 = new Image()
+        $(img2).css('width', '50%')
         img2.src = "../img/NO.jpg"
         $('#phone').append(img2)
         $(img2).on('click', () => {

@@ -241,7 +241,8 @@ class SiteL {
             $(img).css("float", "left")
             $(div).append(img)
             let p = $('<p>')
-            $(p).html(data[0])
+            if (i == 0) $(p).html(data[0])
+            else $(p).html(data[1])
             $(p).css('width', '30%')
             $(p).css('height', '40%')
             $(p).css('border', '2px solid black')
@@ -345,6 +346,10 @@ class SiteL {
         console.log(Q1)
         let Q3 = (array[Math.floor((IL - 1) / 2 + (IL - 1) / 4)] + array[Math.floor((IL - 1) / 2 + (IL - 1) / 4 + 1)]) / 2
         console.log(Q3)
+        if (IL == 1) {
+            Q1 = array[0]
+            Q3 = array[0]
+        }
         if (IL % 2 == 0) {
             var MED = (array[Math.floor((IL - 1) / 2)] + array[Math.floor((IL - 1) / 2 + 1)]) / 2
         }
@@ -370,6 +375,8 @@ class SiteL {
                 $("#phone").append(mainDiv2)
                 var img2 = new Image()
                 img2.src = "../img/range.jpg"
+                $(mainDiv2).css('height', '70%')
+                $(img2).css('height', '100%')
                 $(mainDiv2).append(img2)
             }
             if (i == 4) {
@@ -386,10 +393,10 @@ class SiteL {
         }
         let div = $('<div>')
         $("#phone").append(div)
-        $(div).html(AV)
+        $(div).html("Średnia: " + AV)
         let div1 = $('<div>')
         $("#phone").append(div1)
-        $(div1).html(IL)
+        $(div1).html("Ilość odpowiedzi: " + IL)
         rooms.cookies(this.data, this.LiderSite)
     }
     checkbox() {

@@ -1,15 +1,24 @@
 class RoomsU {
     constructor() {
-        var host = "ponti"
+        var host = "localhost"
         this.User = this.io(host)
+        this.disconnectByLeader()
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "U") this.joinRoom(document.cookie.substring(5, 9))
             else siteU.inputCode()
         else siteU.inputCode()
     }
+
     io(host) {
         if (host == "localhost") return io.connect('http://localhost:3000/U')
         else if (host == "ponti") return io.connect('https://pontiapk.herokuapp.com/U')
+    }
+    disconnectByLeader() {
+        this.User.on('disconnected', (res) => {
+            this.User.off('disconnected')
+            this.leave()
+            siteU.inputCode()
+        })
     }
     cookies(data) {
         var d = new Date();
@@ -34,7 +43,6 @@ class RoomsU {
         })
     }
     leave() {
-        this.User.emit('leave')
         document.cookie = "code= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
         this.User.disconnect()
         this.User = this.io('localhost')

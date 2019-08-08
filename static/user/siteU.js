@@ -186,9 +186,9 @@ class SiteU {
             }
         })
         var x = ""
-        if (typeof data == "string") x = tabLetters.indexOf(data) + 1
+        if (typeof data == "string") x = tabLetters.indexOf(data)
         else x = data
-        for (let i = 0; i < x; i++) {
+        for (let i = 0; i <= x; i++) {
             let div3 = $("<div>")
             $(div3).addClass('leftCheckboxes')
             let div4 = $('<div>')

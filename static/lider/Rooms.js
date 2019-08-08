@@ -111,7 +111,7 @@ class Rooms {
     }
     checkboxEventAwaiting() {
         this.Lider.emit('checkboxEventWaiting')
-        this.Lider.off('checkboxEventAWaiting')
+        this.Lider.off('checkboxEventAwaiting')
         this.Lider.on('checkboxEventAwaiting', (data) => {
             siteL.checkboxWaiting(data)
         })

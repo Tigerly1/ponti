@@ -4,7 +4,6 @@ class SiteU {
     inputCode() {
         $("#phone").empty()
         var inputLen = 0
-        var submit = $("<button>")
         var p = $("<p>")
         $(p).html("Wprowadź EC")
         $(p).attr('id', 'pEEC')
@@ -25,27 +24,17 @@ class SiteU {
                     inputLen += element.value.length
                     console.log(inputLen)
                     if (inputLen == 4) {
-                        $(submit).css('background-color', 'green')
-                        element.blur()
+                        var eCode = ""
+                        Array.from(document.querySelectorAll("input")).forEach((element, index) => {
+                            eCode += String(element.value)
+                            element.value = ""
+                        })
+                        console.log(eCode)
+                        roomsU.joinRoom(eCode)
                     }
-                    if (inputLen < 4) $(submit).css('background-color', 'red')
                 })
             })
         }
-        $("#phone").append(submit)
-        $(submit).text("Join")
-        $(submit).css('background-color', 'red')
-        $(submit).on('click', () => {
-            if (inputLen == 4) {
-                var eCode = ""
-                Array.from(document.querySelectorAll("input")).forEach((element, index) => {
-                    eCode += String(element.value)
-                    element.value = ""
-                })
-                console.log(eCode)
-                roomsU.joinRoom(eCode)
-            }
-        })
     }
     userScreen() {
         roomsU.tN()
@@ -135,19 +124,32 @@ class SiteU {
             this.userScreen()
         })
         for (let i = 0; i < 4; i++) {
-            if (i < 3) var div = $('<div>')
-            if (i < 2) $(div).addClass('table')
+            if (i < 2) {
+                var div = $('<div>')
+                $(div).addClass('table')
+            }
+            $(div).css('margin-top', '4%')
+            $(div).css('width', '40%')
+            $(div).css('height', '20%')
+            $(div).css('font-size', '4em')
+            $(div).css('text-align', 'center')
             let minVal = data.min
             let maxVal = data.max
             if (i == 0) $(div).html(minVal)
             else if (i == 1) $(div).html(maxVal)
             else if (i == 2) {
                 var input = $('<input>')
-                div.append(input)
+                $(input).css('margin', '10% 30% 0% 30%')
+                $(input).css('width', '40%')
+                $(input).css('height', '10%')
+                $(input).css('font-size', '2em')
+                $(input).css('text-align', 'center')
+                $('#phone').append(input)
             }
             else {
                 let button = $('<button>')
-                $(button).addClass('btn')
+                $(button).html('Continue')
+                $(button).addClass('btn-grad')
                 div.append(button)
                 button.on('click', () => {
                     let inputVal = parseInt(document.querySelector('input').value)
@@ -163,7 +165,7 @@ class SiteU {
                 })
                 $('#phone').append(button)
             }
-            if (i < 3) $('#phone').append(div)
+            if (i < 2) $('#phone').append(div)
 
         }
 
@@ -205,8 +207,8 @@ class SiteU {
             if (typeof data == "string") $(p).html(tabLetters[i])
             else $(p).html(i)
             $(div).append(div3)
-            $(div3).append(div4)
             $(div3).append(p)
+            $(div3).append(div4)
         }
     }
 }

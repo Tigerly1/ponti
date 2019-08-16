@@ -1,6 +1,6 @@
 class RoomsU {
     constructor() {
-        var host = "ponti"
+        var host = 'ponti'
         this.User = this.io(host)
         this.disconnectByLeader()
         if (document.cookie != "")
@@ -31,6 +31,7 @@ class RoomsU {
         this.User.emit('joinRoom', data)
         this.User.on('success', (res) => {
             this.User.off('success')
+            this.User.off('err')
             console.log(data)
             this.cookies(data)
             console.log(res)
@@ -38,6 +39,7 @@ class RoomsU {
         })
         this.User.on('err', (msg) => {
             this.User.off('success')
+            this.User.off('err')
             console.log(msg)
             siteU.inputCode()
         })

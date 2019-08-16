@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 * {
@@ -20,10 +21,18 @@ img {
     margin: 10%;
 }
 
+.btn-grad {background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)}
+
+
 button {
-    width: 50%;
+    margin-top: 15%;
+    width: 90%;
     height: 25%;
-    margin: 25%;
+    box-sizing: border-box;
+    border:2px solid gray;
+    border-radius: 40px;
+    font-weight: bold;
+    font-size: 3em;
 }
 
 .inputCodeEEC {
@@ -135,12 +144,12 @@ textarea {
 }
 
 .table {
-    margin: 10%;
-    font-size: 40px;
+    text-align: center;
+    font-size: 4em;
     width: 30%;
-    height: 12%;
+    height: 20%;
     border: 2px solid black;
-    display: block;
+    display: inline-block;
 }
 
 .borderWithNumber {
@@ -222,7 +231,7 @@ textarea {
     margin: 3px;
     height: 13px;
     border: 1px solid black;
-    float: right;
+    float: left;
 }
 
 .leftCheckboxes {

@@ -10,16 +10,42 @@ class SiteL {
         $("#phone").empty()
         this.LiderSite = "OO"
         var img = new Image()
-        img.src = "../img/lstart.jpg"
-        $(img).css("height", "80%")
+        img.src = "../img/most.jpg"
+        $(img).css("height", "20%")
+        $(img).css("width", "100%")
         var img1 = new Image()
-        img1.src = "../img/arrow.jpg"
-        $(img1).css("height", "20%")
+        img1.src = "../img/startL.jpg"
+        $(img1).css("height", "55%")
+        $(img1).css("width", "100%")
+        $(img1).css("box-sizing", "border-box")
+        $(img1).css("border", "5px solid black")
+        $(img1).css("border-radius", "20px")
         $("#phone").append(img)
         $("#phone").append(img1)
         $(img1).on("click", () => {
             this.choose()
         })
+        for (let i = 0; i < 3; i++) {
+            let div = $("<div>")
+            $(div).css("color", "rgb(0,77,128)")
+            $(div).css("font-size", "1.8em")
+            $(div).css("margin-top", "5%")
+            if (i == 0) {
+                $(div).html('<b>Zarządzanie Operacyjne</b>')
+                $(div).css("margin-top", "15%")
+            }
+            else if (i == 1) {
+                $(div).css("color", "rgb(0,0,0)")
+                $(div).html('<b>sme4u.eu</b>')
+                $(div).on("click", () => {
+                    window.location.href = 'https://sme4u.eu';
+                })
+            }
+            else {
+                $(div).html('<b>Konsulting Projekty</b>')
+            }
+            $('#phone').append(div)
+        }
     }
     choose() {
         $("#phone").empty()
@@ -273,17 +299,22 @@ class SiteL {
         })
         this.LiderSite = "ROF"
         for (let i = 0; i < 2; i++) {
-            let input = $('<input>')
-            let div = $('<div>')
-            let text = $('<p>')
+            let input = $('<input placeholder="MIN">')
+            if (i == 1) input = $('<input placeholder="MAX">')
+            /* let text = $('<p>')
             if (i == 0) $(text).html('MIN')
             else $(text).html('MAX')
-            div.append(text)
-            div.append(input)
-            $('#phone').append(div)
+            div.append(text) */
+            $('#phone').append(input)
+            $(input).css('margin-top', '15%')
+            $(input).css('width', '40%')
+            $(input).css('height', '20%')
+            $(input).css('font-size', '4em')
+            $(input).css('text-align', 'center')
         }
         let button = $('<button>')
         $(button).text('Continue')
+        $(button).addClass('btn-grad')
         $('#phone').append(button)
         $(button).on('click', () => {
             let minVal = Array.from(document.querySelectorAll("input"))[0].value
@@ -302,6 +333,20 @@ class SiteL {
     }
     numberReport(data) {
         this.LiderSite = "RROF"
+        for (let i = 0; i < 2; i++) {
+            var div = $('<div>')
+            if (i == 0) $(div).html(data.min)
+            else $(div).html(data.max)
+            $(div).addClass('table')
+            $(div).css('margin-top', '4%')
+            $(div).css('margin-bottom', '10%')
+            $(div).css('width', '40%')
+            $(div).css('height', '20%')
+            $(div).css('font-size', '4em')
+            $(div).css('text-align', 'center')
+            $('#phone').append(div)
+        }
+
         var img1 = new Image()
         img1.id = "report"
         img1.src = "../img/report.jpg"
@@ -439,8 +484,8 @@ class SiteL {
             let p = $('<p>')
             $(p).html(tabLetters[i])
             $(div1).append(div3)
-            $(div3).append(div4)
             $(div3).append(p)
+            $(div3).append(div4)
         }
         let div2 = $('<div>')
         $(div2).attr('id', 'rightCheckboxCheck');

@@ -90,7 +90,7 @@ const Lider = io
                 lider.on('numberEventWaiting', () => {
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
-                            lider.emit('numberEventAwaiting', { min: element.minNumber, max: element.max })
+                            lider.emit('numberEventAwaiting', { min: element.minNumber, max: element.maxNumber })
                         }
                     })
                 })

@@ -144,30 +144,26 @@ class SiteL {
             this.LiderSite = "OC"
             this.choose()
         })
-        var img1 = new Image()
-        img1.src = "../img/TN.jpg"
-        $("#phone").append(img1)
-        $(img1).addClass('middlel')
-        $(img1).on("click", () => {
+        $("#phone").append('<img src="../img/EL.svg" usemap="#image-map"><map name="image-map" class="mapChoose"><area target="_blank" alt="check" id="checkBoxClick" title="check" href="" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702" shape="poly"><area target="_blank" alt="number" title="number" id="numberClick" href="" coords="668,696,674,1331,1329,1329,1327,129" shape="poly"><area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly"></map>')
+        $('img[usemap]').rwdImageMaps();
+        console.log(document.body)
+        $('#yNClick').on("click", (e) => {
+            e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "RYN"
             this.tNChoice()
             rooms.yesNoEvent()
         })
-        var img2 = new Image()
-        img2.src = "../img/liczba.jpg"
-        $("#phone").append(img2)
-        $(img2).addClass('middlel')
-        $(img2).on("click", () => {
+        console.log($('#yNClick'))
+        $('#numberClick').on("click", (e) => {
+            e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "R0F"
             this.numberChoose()
         })
-        var img3 = new Image()
-        img3.src = "../img/lista.jpg"
-        $(img3).addClass('middlel')
-        $("#phone").append(img3)
-        $(img3).on("click", () => {
+
+        $('#checkBoxClick').on("click", (e) => {
+            e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "RCB"
             this.checkbox()

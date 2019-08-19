@@ -49,7 +49,7 @@ class Rooms {
                     else if (document.cookie.substring(10) == "ROF") siteL.numberChoose()
                     else if (document.cookie.substring(10) == "RROF") this.numberWaitingForResult()
                     else if (document.cookie.substring(10) == "RRORF") this.numberEventResult()
-                    else if (document.cookie.substring(10) == "RCB") siteL.checkBox()
+                    else if (document.cookie.substring(10) == "RCB") siteL.checkbox()
                     else if (document.cookie.substring(10) == "RRCB") this.checkboxEventAwaiting()
                     else if (document.cookie.substring(10) == "RRRCB") this.checkboxEventResult()
                 }

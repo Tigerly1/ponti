@@ -155,7 +155,7 @@ class SiteL {
             rooms.yesNoEvent()
         })
         console.log($('#yNClick'))
-        $('#numberClick').on("click", (e) => {
+        /* $('#numberClick').on("click", (e) => {
             e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "R0F"
@@ -167,7 +167,7 @@ class SiteL {
             $("#phone").empty()
             this.LiderSite = "RCB"
             this.checkbox()
-        })
+        }) */
         var img4 = new Image()
         img4.src = "../img/ST.jpg"
         $(img4).attr('id', 'R4')

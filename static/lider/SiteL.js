@@ -162,7 +162,7 @@ class SiteL {
         $("#phone").append('<img src="../img/EL.svg" usemap="#image-map"><map name="image-map"><area shape="poly" id="checkBoxClick" title="check" href="https://www.facebook.com" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702"><area shape="poly" title="number" id="numberClick" href="https://www.facebook.com" coords="668,696,674,1331,1329,1329,1327,129"><area shape="poly" id="yNClick" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" ></map>')
         $('map').imageMapResize();
         console.log(document.body)
-        /* $('#checkBoxClick').on("click", (e) => {
+        $('#checkBoxClick').on("click", (e) => {
             e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "RYN"
@@ -181,7 +181,7 @@ class SiteL {
             $("#phone").empty()
             this.LiderSite = "RCB"
             this.checkbox()
-        }) */
+        })
         var img4 = new Image()
         img4.src = "../img/ST.jpg"
         $(img4).attr('id', 'R4')

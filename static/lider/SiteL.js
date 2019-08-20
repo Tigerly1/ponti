@@ -160,7 +160,7 @@ class SiteL {
              $(map).append(area)
          } */
         $("#phone").append('<img src="../img/EL.svg" usemap="image-map"><map name="image-map" class="mapChoose"><area target="_blank" alt="check" id="checkBoxClick" title="check" href="" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702" shape="poly"><area target="_blank" alt="number" title="number" id="numberClick" href="" coords="668,696,674,1331,1329,1329,1327,129" shape="poly"><area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly"></map>')
-        $('img[usemap]').rwdImageMaps();
+        $('map').imageMapResize();
         console.log(document.body)
         $('#checkBoxClick').on("click", (e) => {
             e.preventDefault();

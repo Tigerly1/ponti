@@ -144,10 +144,25 @@ class SiteL {
             this.LiderSite = "OC"
             this.choose()
         })
+        /*  var img1 = new Image()
+         img1.src = '../img/EL.svg'
+         img1.id = 'clickAndChoose'
+         img1.useMap = "image-map"
+         img1.width = '1000'
+         img1.height = '1000'
+         $("#phone").append(img1)
+         var map = $('<map name="image-map">')
+         $("#phone").append(map)
+         for (let i = 0; i < 3; i++) {
+             if (i == 0) var area = $('<area target="_blank" alt="check" id="checkBoxClick" title="check" href="https://www.facebook.com" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702" shape="poly">')
+             if (i == 1) var area = $('<area target="_blank" alt="number" title="number" id="numberClick" href="https://www.facebook.com" coords="668,696,674,1331,1329,1329,1327,129" shape="poly">')
+             if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
+             $(map).append(area)
+         } */
         $("#phone").append('<img src="../img/EL.svg" usemap="#image-map"><map name="image-map" class="mapChoose"><area target="_blank" alt="check" id="checkBoxClick" title="check" href="" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702" shape="poly"><area target="_blank" alt="number" title="number" id="numberClick" href="" coords="668,696,674,1331,1329,1329,1327,129" shape="poly"><area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly"></map>')
         $('img[usemap]').rwdImageMaps();
         console.log(document.body)
-        $('.mapChoose').on("click", (e) => {
+        /* $('#checkBoxClick').on("click", (e) => {
             e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "RYN"
@@ -155,13 +170,12 @@ class SiteL {
             rooms.yesNoEvent()
         })
         console.log($('#yNClick'))
-        /* $('#numberClick').on("click", (e) => {
+        $('#numberClick').on("click", (e) => {
             e.preventDefault();
             $("#phone").empty()
             this.LiderSite = "R0F"
             this.numberChoose()
         })
-
         $('#checkBoxClick').on("click", (e) => {
             e.preventDefault();
             $("#phone").empty()

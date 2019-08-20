@@ -113,7 +113,7 @@ class SiteL {
             this.choose()
         })
         var img1 = new Image()
-        img1.src = "../img/CLOSE.jpg"
+        img1.src = "../img/close.jpg"
         $("#phone").append(img1)
         $("#phone").append("</br>" + "CLOSE " + this.data + " ?" + "</br>")
         var img2 = new Image()
@@ -159,7 +159,7 @@ class SiteL {
              if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
              $(map).append(area)
          } */
-        $("#phone").append('<img src="../img/EL.svg" usemap="#image-map" border="0" width="100%"><map name="image-map"><area shape="poly" id="checkBoxClick" title="check" href="#" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702"><area shape="poly" title="number" id="numberClick" href="#" coords="668,696,674,1331,1329,1329,1327,129"><area shape="poly" id="yNClick" title="yesNo" href="#" coords="663,681,2,172,2,2,1331,0,1324,118" ></map>')
+        $("#phone").append('<img src="../img/EL.svg" usemap="#image-map" border="0" width="1000px" height="1000px" id="clickAndChoose"><map name="image-map"><area shape="poly" id="checkBoxClick" title="check" href="#" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702"><area shape="poly" title="number" id="numberClick" href="#" coords="668,696,674,1331,1329,1329,1327,129"><area shape="poly" id="yNClick" title="yesNo" href="#" coords="663,681,2,172,2,2,1331,0,1324,118" ></map>')
         $(document).ready(function () {
             $('map').imageMapResize();
         });

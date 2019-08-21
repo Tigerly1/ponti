@@ -28,7 +28,7 @@ class SiteL {
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")
             $(div).css("color", "rgb(0,77,128)")
-            $(div).css("font-size", "1.8em")
+            $(div).css("font-size", "6vw")
             $(div).css("margin-top", "5%")
             if (i == 0) {
                 $(div).html('<b>Zarządzanie Operacyjne</b>')

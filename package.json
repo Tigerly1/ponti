@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.16.4",
+    "image-map-resizer": "^1.0.10",
     "package.json": "^2.0.1",
     "socket.io": "^2.2.0"
   },

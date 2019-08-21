@@ -159,10 +159,14 @@ class SiteL {
              if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
              $(map).append(area)
          } */
-        $("#phone").append('<img src="../img/EL.svg" usemap="#imagemap" border="0" width="100%"><map name="imagemap"><area shape="poly" id="checkBoxClick" title="check" href="#" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702"><area shape="poly" title="number" id="numberClick" href="#" coords="668,696,674,1331,1329,1329,1327,129"><area shape="poly" id="yNClick" title="yesNo" href="#" coords="663,681,2,172,2,2,1331,0,1324,118" ></map>')
-        $('map').on('load', () => {
-            $('map').imageMapResize();
-        })
+        $("#phone").append('<a id="areas" href="#"><img src="../img/EL.svg" usemap="#imagemap" border="0" width="100%"><map name="imagemap"><area shape="poly" id="checkBoxClick" title="check" href="#" coords="268,403,133,296,0,202,0,644,2,1331,657,1331,653,702"><area shape="poly" title="number" id="numberClick" href="#" coords="668,696,674,1331,1329,1329,1327,129"><area shape="poly" id="yNClick" title="yesNo" href="#" coords="663,681,2,172,2,2,1331,0,1324,118" ></map></a>')
+        $("#areas").on("click tap", function (evt) {
+            evt.preventDefault();
+            if (evt.target.tagName.toLowerCase() == "area") {
+                console.log("Shape " + evt.target.id.replace("area", "") + " clicked!");
+            }
+        });
+        $('map').imageMapResize();
         console.log(document.body)
         $('#yNClick').on("click", (e) => {
             e.preventDefault();

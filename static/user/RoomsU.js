@@ -1,6 +1,6 @@
 class RoomsU {
     constructor() {
-        var host = 'localhost'
+        var host = 'ponti'
         this.User = this.io(host)
         this.disconnectByLeader()
         if (document.cookie != "")

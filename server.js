@@ -7,10 +7,18 @@ var bodyParser = require("body-parser")
 app.use(express.static('static'))
 app.use(bodyParser.urlencoded({ extended: true }));
 var liderTab = ["4092", "1212"]
-var liderEverythingTab = [{
-    eCode: '10000',
-    tabST: []
-}]
+var liderEverythingTab = []
+setInterval(() => {
+    var date1 = new Date()
+    liderEverythingTab.forEach((e, i) => {
+        if (date1 - e.date > 86400000) {
+            liderEverythingTab.splice(i, 1)
+            liderTab.forEach((el, ind) => {
+                if (e.eCode == el) liderTab.splice(ind, 1)
+            })
+        }
+    })
+}, 3600000)
 app.get('/L', function (req, res) {
     res.sendFile(__dirname + '/static/lider.html');
 });
@@ -22,6 +30,13 @@ const Lider = io
     .of("/L")
     .on('connection', (lider) => {
         lider.on('EC', () => {
+            function EC() {
+                var EC = String(Math.floor(Math.random() * 10000))
+                if (EC < 10) EC = "000" + EC
+                else if (EC < 100) EC = "00" + EC
+                else if (EC < 1000) EC = "0" + EC
+                return EC
+            }
             if (liderTab.length == 0) {
                 var eCode = EC()
                 liderTab.push(eCode)
@@ -37,7 +52,7 @@ const Lider = io
                 liderTab.push(eCode)
             }
             console.log(liderTab)
-            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, tabST: [], yesNoTab: [0, 0], minNumber: 0, maxNumber: 0, numberTab: [], checkboxRange: "", checkboxTab: [], online: 0 }
+            liderEverythingTab[liderEverythingTab.length] = { eCode: eCode, date: new Date(), tabST: [], yesNoTab: [0, 0], minNumber: 0, maxNumber: 0, numberTab: [], checkboxRange: "", checkboxTab: [], online: 0 }
             console.log(liderEverythingTab)
             lider.emit('connected', eCode)
         })
@@ -227,20 +242,6 @@ const User = io
             }
         })
     })
-function EC() {
-    var EC = String(Math.floor(Math.random() * 10000))
-    if (EC < 10) EC = "000" + EC
-    else if (EC < 100) EC = "00" + EC
-    else if (EC < 1000) EC = "0" + EC
-    return EC
-}
-app.post("/EC", (req, res) => {
-
-})
-app.post('/ECR', (req, res) => {
-
-})
-
 server.listen(PORT, function () {
     console.log("start serwera na porcie " + PORT)
 })

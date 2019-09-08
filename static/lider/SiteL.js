@@ -318,11 +318,12 @@ class SiteL {
                                                                 div.append(text) */
             $('#phone').append(input)
             $(input).css('margin-top', '15%')
-            $(input).css('width', '35%')
+            $(input).css('width', '50%')
             $(input).css('height', '20%')
             $(input).css('font-size', '4em')
             $(input).css('text-align', 'center')
             $(input).css('float', 'left')
+            $(input).css('display', 'inline-block')
         }
         let button = $('<button>')
         $(button).text('Continue')

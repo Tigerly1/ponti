@@ -2,6 +2,9 @@ html, body {
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
+    background-image: url("img/background.jpg");
+    background-position: center top;
+    background-size: 100% 100%;
 }
 
 * {
@@ -135,7 +138,7 @@ textarea {
     position: absolute;
     width: 15%;
     height: 20%;
-    left: 0;
+    left: 20%;
     bottom: 0%;
     font-size: 7em;
     color: rgb(7, 168, 7);

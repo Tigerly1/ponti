@@ -314,7 +314,7 @@ class SiteL {
                                                                 div.append(text) */
       $("#phone").append(input);
       $(input).css("margin-top", "15%");
-      $(input).css("width", "45%");
+      $(input).css("width", "50%");
       $(input).css("height", "20%");
       $(input).css("font-size", "4em");
       $(input).css("text-align", "center");
@@ -324,6 +324,7 @@ class SiteL {
     }
     let button = $("<button>");
     $(button).text("Continue");
+    $(button).css("height", "25%");
     $(button).addClass("btn-grad");
     $("#phone").append(button);
     $(button).on("click", () => {

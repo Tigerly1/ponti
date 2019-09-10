@@ -12,11 +12,13 @@ html, body {
 img {
     width: 100%;
 }
-#clickAndChoose{
+
+#clickAndChoose {
     position: relative;
     width: 100%;
     height: 30%;
 }
+
 #phone {
     position: relative;
     height: 80%;
@@ -25,15 +27,16 @@ img {
     margin: 10%;
 }
 
-.btn-grad {background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)}
-
+.btn-grad {
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)
+}
 
 button {
     margin-top: 15%;
     width: 90%;
     height: 25%;
     box-sizing: border-box;
-    border:2px solid gray;
+    border: 2px solid gray;
     border-radius: 40px;
     font-weight: bold;
     font-size: 3em;

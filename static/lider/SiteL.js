@@ -316,7 +316,7 @@ class SiteL {
         })
         this.LiderSite = "ROF"
         for (let i = 0; i < 2; i++) {
-            let input = $('<input placeholder="MIN">')
+            let input = $('<input type="tel" placeholder="MIN">')
             if (i == 1) input = $('<input placeholder="MAX">')
             /* let text = $('<p>')
                                                                 if (i == 0) $(text).html('MIN')
@@ -326,7 +326,7 @@ class SiteL {
             $(input).css("margin-top", "15%")
             $(input).css("width", "50%")
             $(input).css("height", "20%")
-            $(input).css("font-size", "4em")
+            $(input).css("font-size", "80px")
             $(input).css("text-align", "center")
             $(input).css("float", "left")
             $(input).css("box-sizing", "border-box")

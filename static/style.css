@@ -1,11 +1,12 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 * {
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
 }
 
@@ -28,7 +29,12 @@ img {
 }
 
 .btn-grad {
-    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)
+    background-image: linear-gradient(
+        to right,
+        #ff8008 0%,
+        #ffc837 51%,
+        #ff8008 100%
+    );
 }
 
 button {
@@ -47,7 +53,7 @@ button {
     width: 15%;
     margin-right: 10%;
     height: 10%;
-    font-size: 5vh;
+    font-size: 200%;
     text-align: center;
     border: 2px solid blue;
 }
@@ -91,7 +97,7 @@ button {
     float: left;
     width: 80%;
     margin-left: 10%;
-    height: 50%
+    height: 50%;
 }
 
 textarea {
@@ -216,7 +222,7 @@ textarea {
     position: relative;
 }
 
-#checkboxCheck>div:first-child {
+#checkboxCheck > div:first-child {
     position: relative;
     display: block;
     width: 50%;
@@ -225,7 +231,7 @@ textarea {
     text-align: left;
 }
 
-#checkboxCheck>div:last-child {
+#checkboxCheck > div:last-child {
     position: relative;
     display: block;
     width: 50%;

@@ -317,7 +317,7 @@ class SiteL {
         this.LiderSite = "ROF"
         for (let i = 0; i < 2; i++) {
             let input = $('<input type="tel" placeholder="MIN">')
-            if (i == 1) input = $('<input placeholder="MAX">')
+            if (i == 1) input = $('<input  type="tel" placeholder="MAX">')
             /* let text = $('<p>')
                                                                 if (i == 0) $(text).html('MIN')
                                                                 else $(text).html('MAX')

@@ -23,16 +23,20 @@ class SiteL {
         $("#phone").append(img)
         $("#phone").append(img1)
         $(img1).on("click", () => {
-            this.choose()
+            $("#phone").empty()
+            this.LiderSite = "4R"
+            console.log(this.data)
+            if (this.data == null) rooms.createId()
+            else this.liderChoice()
         })
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")
             $(div).css("color", "rgb(0,77,128)")
-            $(div).css("font-size", "6vw")
+            $(div).css("font-size", "150%")
             $(div).css("margin-top", "5%")
             if (i == 0) {
                 $(div).html("<b>Zarządzanie Operacyjne</b>")
-                $(div).css("margin-top", "15%")
+                $(div).css("margin-top", "5%")
             } else if (i == 1) {
                 $(div).css("color", "rgb(0,0,0)")
                 $(div).html("<b>sme4u.eu</b>")
@@ -135,6 +139,8 @@ class SiteL {
         var img = new Image()
         img.src = "../img/back.jpg"
         $("#phone").append(img)
+        $(img).css("width", "100%")
+        $(img).css("height", "15%")
         $(img).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "OC"
@@ -155,9 +161,21 @@ class SiteL {
              if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
              $(map).append(area)
          } */
-
+        var img5 = new Image()
+        img5.src = "../img/online.jpg"
+        $(img5).attr("id", "online4R")
+        $("#phone").append(img5)
+        let div2 = $("<div>")
+        $(div2).attr("id", "R4online")
+        $(div2).html(this.online)
+        $("#phone").append(div2)
+        var p = $("<p>")
+        $(p).css("font-size", "5vh")
+        $(p).css("float", "right")
+        $(p).html("EC" + this.data)
+        $("#phone").append(p)
         $("#phone").append(
-            '<img src="../img/EL.jpg" name="imgmap" usemap="#m_imgmap" border="0" width="100%" height="50%"><map name="m_imgmap"><area  href = "" coords = "0,197,63,249,158,317,268,397,334,445,373,479,462,416,587,295,740,159,740,1,0,1,0,162" id = "yNClick" shape = "poly" ><area target="" alt="" title="" href="" coords="372,929,0,927,0,202,369,485,371,491" id="checkBoxClick" shape="poly"><area target="" alt="" title="" href="" coords="382,486,383,928,739,928,740,165" id="numberClick" shape="poly"></map>'
+            '<img src="../img/EL.jpg" name="imgmap" usemap="#m_imgmap" border="0" width="100%" height="55%"><map name="m_imgmap"><area  href = "" coords = "0,197,63,249,158,317,268,397,334,445,373,479,462,416,587,295,740,159,740,1,0,1,0,162" id = "yNClick" shape = "poly" ><area target="" alt="" title="" href="" coords="372,929,0,927,0,202,369,485,371,491" id="checkBoxClick" shape="poly"><area target="" alt="" title="" href="" coords="382,486,383,928,739,928,740,165" id="numberClick" shape="poly"></map>'
         )
         console.log(document.body)
         $("#yNClick").on("click", e => {
@@ -194,15 +212,6 @@ class SiteL {
                 this.raportRST()
             })
         }
-        var img5 = new Image()
-        img5.src = "../img/online.jpg"
-        $(img5).attr("id", "online4R")
-        $("#phone").append(img5)
-        let div2 = $("<div>")
-        $(div2).attr("id", "R4online")
-        $(div2).html(this.online)
-        $("#phone").append(div2)
-        $("#phone").append("EC" + this.data)
         rooms.cookies(this.data, this.LiderSite)
         rooms.textDelivery()
         $("map").imageMapResize()

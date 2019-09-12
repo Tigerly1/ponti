@@ -1,6 +1,6 @@
 class Rooms {
     constructor() {
-        var host = "ponti"
+        var host = "localhost"
         this.Lider = this.io(host)
         if (document.cookie != "")
             if (document.cookie.split("=")[1].split("")[4] == "L")

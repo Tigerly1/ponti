@@ -15,7 +15,6 @@ class RoomsU {
     }
     disconnectByLeader() {
         this.User.on('disconnected', (res) => {
-            this.User.off('disconnected')
             this.leave()
             siteU.inputCode()
         })

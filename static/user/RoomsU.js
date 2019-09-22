@@ -18,6 +18,7 @@ class RoomsU {
             this.User.off('disconnected')
             this.leave()
             siteU.inputCode()
+            this.User = this.io('ponti')
         })
     }
     cookies(data) {
@@ -47,7 +48,7 @@ class RoomsU {
     leave() {
         document.cookie = "code= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
         this.User.disconnect()
-        this.User = this.io('localhost')
+        this.User = this.io('ponti')
     }
     textSent(text) {
         console.log(text)

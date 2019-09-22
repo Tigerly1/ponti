@@ -225,6 +225,7 @@ const User = io
                     io.of("/L").in(room).emit('textDelivered', date)
                 })
                 client.on('disconnect', () => {
+                    client.leave(room)
                     console.log('dziala')
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
@@ -232,8 +233,7 @@ const User = io
                             io.of("/L").in(room).emit('onlineDelivery', element.online)
                         }
                     })
-                    client.leave(room)
-                    client.disconnect()
+
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

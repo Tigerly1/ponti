@@ -93,7 +93,7 @@ class SiteL {
         this.STTab.push(text.date)
         if (this.LiderSite == "4R") {
             $("#R4notifi").html(this.STTab.length / 2)
-            $("#R4notifi").on("click", () => {
+            $("#R4").on("click", () => {
                 $("#phone").empty()
                 this.LiderSite = "RST"
                 this.raportRST()
@@ -206,7 +206,7 @@ class SiteL {
         $(div).html(this.STTab.length / 2)
         $("#phone").append(div)
         if (this.STTab.length > 0) {
-            $(div).on("click", () => {
+            $(img4).on("click", () => {
                 $("#phone").empty()
                 this.LiderSite = "RST"
                 this.raportRST()
@@ -382,7 +382,7 @@ class SiteL {
     numberResult(array) {
         this.LiderSite = "RRORF"
         console.log(this.online)
-        array.sort(function(a, b) {
+        array.sort(function (a, b) {
             return a - b
         })
         console.log(array)

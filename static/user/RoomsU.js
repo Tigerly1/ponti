@@ -18,7 +18,6 @@ class RoomsU {
             this.User.off('disconnected')
             this.leave()
             siteU.inputCode()
-            this.User = this.io('ponti')
         })
     }
     cookies(data) {

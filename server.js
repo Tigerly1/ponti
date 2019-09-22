@@ -233,6 +233,7 @@ const User = io
                         }
                     })
                     client.leave(room)
+                    client.disconnect()
                 })
                 return client.emit('success', 'xd succesfully joined this room')
             }

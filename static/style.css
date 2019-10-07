@@ -4,10 +4,10 @@ html, body {
     overflow: hidden;
 }
 
-* {
+/* * {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
-}
+} */
 
 img {
     width: 100%;

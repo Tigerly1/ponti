@@ -27,10 +27,6 @@ img {
     margin: 10%;
 }
 
-.btn-grad {
-    background-image: linear-gradient( to right, #ff8008 0%, #ffc837 51%, #ff8008 100%);
-}
-
 button {
     margin-top: 15%;
     width: 90%;
@@ -44,7 +40,7 @@ button {
 
 .inputCodeEEC {
     box-sizing: border-box;
-    width: 12%;
+    width: 15%;
     margin-right: 10%;
     height: 10%;
     font-size: 48px;

@@ -323,7 +323,6 @@ class SiteL {
                                                                 else $(text).html('MAX')
                                                                 div.append(text) */
             $("#phone").append(input)
-            $(input).css("position", "relative")
             $(input).css("margin-top", "15%")
             $(input).css("width", "50%")
             $(input).css("height", "20%")

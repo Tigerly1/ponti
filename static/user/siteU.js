@@ -6,11 +6,14 @@ class SiteU {
         var p = $("<p>")
         $(p).html("Wprowadź EC")
         $(p).attr("id", "pEEC")
+        var div = $("<div>")
+        $(div).addattr("id", "inputer")
         $("#phone").append(p)
+        $("#phone").append(div)
         for (let i = 0; i < 4; i++) {
             var input = $("<input  type='tel' maxlength='1'>")
             $(input).addClass("inputCodeEEC")
-            $("#phone").append(input)
+            $(div).append(input)
             if (i == 0) $(input).focus()
             $(input).on("input", () => {
                 inputLen = 0

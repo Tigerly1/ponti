@@ -57,19 +57,9 @@ button {
 .inputCodeEEC {
     box-sizing: border-box;
     width: 15%;
-    margin-right: 10%;
     height: 100%;
     font-size: 48px;
-    text-align: center;
     border: 2px solid blue;
-}
-
-.inputCodeEEC:last-of-type {
-    margin-right: 5%;
-}
-
-.inputCodeEEC:first-of-type {
-    margin-left: 5%;
 }
 
 #pEEC {

@@ -3,6 +3,7 @@ body {
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
+    background-color: green;
 }
 
 * {
@@ -38,6 +39,7 @@ input:after {
     width: 80%;
     text-align: center;
     margin: 10%;
+    background-color: yellow;
 }
 #inputer {
     background-color: gray;

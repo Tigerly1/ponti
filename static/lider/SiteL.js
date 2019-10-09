@@ -326,7 +326,7 @@ class SiteL {
             $(input).css("margin-top", "15%")
             $(input).css("width", "50%")
             $(input).css("height", "20%")
-            $(input).css("font-size", "46px")
+            $(input).css("font-size", "40px")
             $(input).css("text-align", "center")
             $(input).css("float", "left")
             $(input).css("box-sizing", "border-box")

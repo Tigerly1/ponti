@@ -55,6 +55,7 @@ button {
 }
 
 .inputCodeEEC {
+    float: left;
     box-sizing: border-box;
     width: 15%;
     height: 100%;

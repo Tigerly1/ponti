@@ -326,11 +326,18 @@ class SiteL {
             $(input).css("margin-top", "15%")
             $(input).css("width", "50%")
             $(input).css("height", "20%")
-            $(input).css("font-size", "80px")
+            $(input).css("font-size", "46px")
             $(input).css("text-align", "center")
             $(input).css("float", "left")
             $(input).css("box-sizing", "border-box")
             $(input).css("display", "inline-block")
+            $(input).on("input", () => {
+                minVal = Array.from(document.querySelectorAll("input"))[0].value
+                maxVal = Array.from(document.querySelectorAll("input"))[1].value
+                minVal < maxVal && minVal > 0
+                    ? $(".btn-grad").css("background-color", "green")
+                    : null
+            })
         }
         let button = $("<button>")
         $(button).text("Continue")

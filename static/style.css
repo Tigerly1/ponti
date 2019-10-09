@@ -1,13 +1,14 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
-/* * {
-    font-family: 'Roboto', sans-serif;
+* {
+    font-family: "Times New Roman", sans-serif,Times, serif, 
     margin: 0 auto;
-} */
+}
 
 * {
     margin: 0 auto;
@@ -216,7 +217,7 @@ textarea {
     position: relative;
 }
 
-#checkboxCheck>div:first-child {
+#checkboxCheck > div:first-child {
     position: relative;
     display: block;
     width: 50%;
@@ -225,7 +226,7 @@ textarea {
     text-align: left;
 }
 
-#checkboxCheck>div:last-child {
+#checkboxCheck > div:last-child {
     position: relative;
     display: block;
     width: 50%;

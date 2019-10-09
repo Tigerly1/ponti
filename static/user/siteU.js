@@ -7,7 +7,7 @@ class SiteU {
         $(p).html("Wprowadź EC")
         $(p).attr("id", "pEEC")
         var div = $("<div>")
-        $(div).addattr("id", "inputer")
+        $(div).attr("id", "inputer")
         $("#phone").append(p)
         $("#phone").append(div)
         for (let i = 0; i < 4; i++) {

@@ -338,7 +338,7 @@ class SiteL {
                     .value
                 minVal < maxVal && minVal > 0
                     ? $(".btn-grad").css("background-color", "green")
-                    : null
+                    : $(".btn-grad").css("background-color", "initial")
             })
         }
         let button = $("<button>")

@@ -34,6 +34,7 @@ class SiteL {
             $(div).css("color", "rgb(0,77,128)")
             $(div).css("font-size", "150%")
             $(div).css("margin-top", "5%")
+            $(div).css("text-align", "center")
             if (i == 0) {
                 $(div).html("<b>Zarządzanie Operacyjne</b>")
                 $(div).css("margin-top", "5%")

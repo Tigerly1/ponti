@@ -2,13 +2,6 @@ html,
 body {
     height: 100%;
     margin: 0 auto;
-    overflow: hidden;
-    background-color: green;
-}
-
-* {
-    font-family: "Times New Roman", sans-serif, Times, serif;
-    margin: 0 auto;
 }
 
 * {
@@ -18,15 +11,7 @@ body {
 img {
     width: 100%;
 }
-input,
-input:before,
-input:after {
-    -webkit-user-select: initial;
-    -khtml-user-select: initial;
-    -moz-user-select: initial;
-    -ms-user-select: initial;
-    user-select: initial;
-}
+
 #clickAndChoose {
     position: relative;
     width: 100%;
@@ -35,11 +20,6 @@ input:after {
 
 #phone {
     position: relative;
-    height: 90%;
-    width: 80%;
-    text-align: center;
-    margin: 10%;
-    background-color: yellow;
 }
 #inputer {
     background-color: gray;
@@ -57,14 +37,20 @@ button {
     font-weight: bold;
     font-size: 3em;
 }
+.inputCodeEEC:last-of-type {
+    margin-right: 5%;
+}
 
+.inputCodeEEC:first-of-type {
+    margin-left: 5%;
+}
 .inputCodeEEC {
-    position: relative;
-    float: left;
     box-sizing: border-box;
     width: 15%;
-    height: 100%;
-    font-size: 48px;
+    margin-right: 10%;
+    height: 10%;
+    font-size: 5vh;
+    text-align: center;
     border: 2px solid blue;
 }
 

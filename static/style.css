@@ -77,7 +77,7 @@ button {
 
 #R4online {
     position: absolute;
-    left: 15%;
+    left: 25%;
     top: 15%;
     width: 15%;
     height: 10%;
@@ -149,9 +149,10 @@ textarea {
 }
 
 .table {
+    box-sizing: border-box;
     text-align: center;
     font-size: 4em;
-    width: 30%;
+    width: 50%;
     height: 20%;
     border: 2px solid black;
     display: inline-block;

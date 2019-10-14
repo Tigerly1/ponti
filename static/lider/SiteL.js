@@ -345,6 +345,7 @@ class SiteL {
         let button = $("<button>")
         $(button).text("Continue")
         $(button).css("height", "25%")
+        $(button).css("width", "100%")
         $(button).addClass("btn-grad")
         $("#phone").append(button)
         $(button).on("click", () => {
@@ -369,12 +370,6 @@ class SiteL {
             if (i == 0) $(div).html(data.min)
             else $(div).html(data.max)
             $(div).addClass("table")
-            $(div).css("margin-top", "4%")
-            $(div).css("margin-bottom", "10%")
-            $(div).css("width", "40%")
-            $(div).css("height", "20%")
-            $(div).css("font-size", "4em")
-            $(div).css("text-align", "center")
             $("#phone").append(div)
         }
 

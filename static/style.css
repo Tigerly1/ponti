@@ -30,9 +30,9 @@ img {
     height: 12%;
 }
 button {
-    margin-top: 15%;
-    width: 90%;
-    height: 25%;
+    margin-top: 10%;
+    width: 100%;
+    height: 20%;
     box-sizing: border-box;
     border: 2px solid gray;
     border-radius: 40px;
@@ -95,20 +95,10 @@ textarea {
     font-size: 1.4em;
 }
 
-#ST1 {
-    box-sizing: border-box;
-    margin-left: 5%;
-    width: 100%;
-    height: 40%;
-    position: relative;
-    float: left;
-    border: 5px solid red;
-}
-
 #ST2 {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 60%;
 }
 
 #ST3 {
@@ -200,8 +190,8 @@ textarea {
 
 #checkboxCheck {
     background-color: #94bdff;
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 55%;
     margin-left: 15%;
     position: relative;
 }

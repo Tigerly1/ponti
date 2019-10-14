@@ -481,6 +481,14 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     checkbox() {
+        var img = new Image()
+        img.src = "../img/back.jpg"
+        $("#phone").append(img)
+        $(img).on("click", () => {
+            $("#phone").empty()
+            this.LiderSite = "4R"
+            this.liderChoice()
+        })
         this.LiderSite = "RCB"
         let div = $("<div>")
         $(div).attr("id", "checkboxCheck")

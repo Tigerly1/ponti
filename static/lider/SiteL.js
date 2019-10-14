@@ -115,7 +115,13 @@ class SiteL {
         var img1 = new Image()
         img1.src = "../img/close.jpg"
         $("#phone").append(img1)
-        $("#phone").append("</br>" + "CLOSE " + this.data + " ?" + "</br>")
+        $("#phone").append(
+            "<p style='text-align': 'center'>" +
+                "CLOSE " +
+                this.data +
+                " ?" +
+                "</p>"
+        )
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
         $("#phone").append(img2)

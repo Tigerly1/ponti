@@ -116,7 +116,7 @@ class SiteL {
         img1.src = "../img/close.jpg"
         $("#phone").append(img1)
         $("#phone").append(
-            "<p style='text-align': 'center'>" +
+            "<p style='text-align: center'>" +
                 "CLOSE " +
                 this.data +
                 " ?" +

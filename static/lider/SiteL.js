@@ -50,31 +50,6 @@ class SiteL {
             $("#phone").append(div)
         }
     }
-    choose() {
-        $("#phone").empty()
-        this.LiderSite = "OC"
-        var img = new Image()
-        img.src = "../img/ENT.jpg"
-        $(img).css("margin-top", "12.5%")
-        $(img).css("height", "40%")
-        $("#phone").append(img)
-        $(img).on("click", () => {
-            $("#phone").empty()
-            this.LiderSite = "4R"
-            console.log(this.data)
-            if (this.data == null) rooms.createId()
-            else this.liderChoice()
-        })
-        var img1 = new Image()
-        img1.src = "../img/EXIT.jpg"
-        $(img1).css("height", "40%")
-        $("#phone").append(img1)
-        $(img1).on("click", () => {
-            if (this.data == null) {
-                this.beginning()
-            } else this.close()
-        })
-    }
     setData(data) {
         this.data = data
     }
@@ -110,17 +85,17 @@ class SiteL {
         $(img).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "OC"
-            this.choose()
+            this.liderChoice()
         })
         var img1 = new Image()
         img1.src = "../img/close.jpg"
         $("#phone").append(img1)
         $("#phone").append(
             "<p style='text-align: center'>" +
-                "CLOSE " +
-                this.data +
-                " ?" +
-                "</p>"
+            "CLOSE " +
+            this.data +
+            " ?" +
+            "</p>"
         )
         var img2 = new Image()
         img2.src = "../img/OK.jpg"
@@ -151,7 +126,7 @@ class SiteL {
         $(img).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "OC"
-            this.choose()
+            this.close()
         })
         /*  var img1 = new Image()
          img1.src = '../img/EL.svg'
@@ -390,7 +365,7 @@ class SiteL {
     numberResult(array) {
         this.LiderSite = "RRORF"
         console.log(this.online)
-        array.sort(function(a, b) {
+        array.sort(function (a, b) {
             return a - b
         })
         console.log(array)

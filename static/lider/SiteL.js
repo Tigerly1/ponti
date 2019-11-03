@@ -530,6 +530,8 @@ class SiteL {
                 })
             }
             let p = $("<p>")
+            $(p).css({ 'float': 'right' })
+            $(p).css({ 'margin-right': '50%' })
             $(p).html(i)
             $(div2).append(div3)
             $(div3).append(div4)
@@ -592,6 +594,8 @@ class SiteL {
             if (typeof validation == "string")
                 $(p).html(tabLetters[i] + " : " + filtered.length)
             else $(p).html(i + " : " + filtered.length)
+            $(p).css({ 'float': 'right' })
+            $(p).css({ 'margin-right': '50%' })
             $(div).append(div3)
             $(div3).append(p)
         }

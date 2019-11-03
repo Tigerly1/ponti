@@ -230,7 +230,12 @@ class SiteU {
             })
             let p = $("<p>")
             if (typeof data == "string") $(p).html(tabLetters[i])
-            else $(p).html(i)
+            else {
+                $(p).html(i)
+
+            }
+            $(p).css({ 'float': 'right' })
+            $(p).css({ 'margin-right': '50%' })
             $(div).append(div3)
             $(div3).append(p)
             $(div3).append(div4)

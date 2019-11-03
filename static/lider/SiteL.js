@@ -503,6 +503,8 @@ class SiteL {
             }
             let p = $("<p>")
             $(p).html(tabLetters[i])
+            $(p).css({ 'float': 'right' })
+            $(p).css({ 'margin-right': '50%' })
             $(div1).append(div3)
             $(div3).append(p)
             $(div3).append(div4)

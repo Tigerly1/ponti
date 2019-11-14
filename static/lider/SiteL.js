@@ -315,6 +315,7 @@ class SiteL {
                     .value
                 let maxVal = Array.from(document.querySelectorAll("input"))[1]
                     .value
+                console.log(minVal, maxVal)
                 minVal < maxVal && minVal > 0
                     ? $(".btn-grad").css("background-color", "green")
                     : $(".btn-grad").css("background-color", "initial")

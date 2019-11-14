@@ -311,10 +311,10 @@ class SiteL {
             $(input).css("box-sizing", "border-box")
             $(input).css("display", "inline-block")
             $(input).on("input", () => {
-                let minVal = Array.from(document.querySelectorAll("input"))[0]
-                    .value
-                let maxVal = Array.from(document.querySelectorAll("input"))[1]
-                    .value
+                let minVal = int(Array.from(document.querySelectorAll("input"))[0]
+                    .value)
+                let maxVal = int(Array.from(document.querySelectorAll("input"))[1]
+                    .value)
                 console.log(minVal, maxVal)
                 minVal < maxVal && minVal > 0
                     ? $(".btn-grad").css("background-color", "green")

@@ -311,9 +311,9 @@ class SiteL {
             $(input).css("box-sizing", "border-box")
             $(input).css("display", "inline-block")
             $(input).on("input", () => {
-                let minVal = int(Array.from(document.querySelectorAll("input"))[0]
+                let minVal = Number(Array.from(document.querySelectorAll("input"))[0]
                     .value)
-                let maxVal = int(Array.from(document.querySelectorAll("input"))[1]
+                let maxVal = Number(Array.from(document.querySelectorAll("input"))[1]
                     .value)
                 console.log(minVal, maxVal)
                 minVal < maxVal && minVal > 0

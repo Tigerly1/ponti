@@ -319,7 +319,7 @@ class SiteL {
         $(button).on("click", () => {
             let minVal = Number(Array.from(document.querySelectorAll("input"))[0].value)
             let maxVal = Number(Array.from(document.querySelectorAll("input"))[1].value)
-            if (minVal >= 0 && maxVal > minVal && (minVal || maxVal) != NaN, undefined) {
+            if (minVal >= 0 && maxVal > minVal && (minVal && maxVal) != NaN) {
                 this.max = maxVal
                 this.min = minVal
                 console.log("Min: " + minVal)

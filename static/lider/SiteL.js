@@ -465,6 +465,7 @@ class SiteL {
             this.LiderSite = "4R"
             this.liderChoice()
         })
+        $(img).css("height", "15%")
         this.LiderSite = "RCB"
         let div = $("<div>")
         $(div).attr("id", "checkboxCheck")
@@ -476,7 +477,9 @@ class SiteL {
         let tabLetters = ["A", "B", "C", "D", "E"]
         var actualDiv1 = ""
         var actualDiv2 = ""
-        var button = $("<button>")
+        var button = new Image()
+        button.src = "../img/OK.jpg"
+        $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
             if (validation > "A" || validation > 0) {
@@ -499,7 +502,6 @@ class SiteL {
                     actualDiv1 = div4
                     $(div4).css({ "background-color": "red" })
                     validation = tabLetters[i]
-                    $(button).css({ "background-color": "green" })
                 })
             }
             let p = $("<p>")
@@ -527,7 +529,6 @@ class SiteL {
                     actualDiv2 = div4
                     $(div4).css({ "background-color": "red" })
                     validation = i
-                    $(button).css({ "background-color": "green" })
                 })
             }
             let p = $("<p>")

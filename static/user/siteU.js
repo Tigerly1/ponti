@@ -202,7 +202,9 @@ class SiteU {
         var validation = ""
         let tabLetters = ["A", "B", "C", "D", "E"]
         var actualDiv1 = ""
-        var button = $("<button>")
+        var button = new Image()
+        button.src = "../img/OK.jpg"
+        $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
             if (validation != "") {
@@ -226,7 +228,6 @@ class SiteU {
                 $(div4).css({ "background-color": "red" })
                 if (typeof data == "string") validation = tabLetters[i]
                 else validation = i
-                $(button).css({ "background-color": "green" })
             })
             let p = $("<p>")
             if (typeof data == "string") $(p).html(tabLetters[i])

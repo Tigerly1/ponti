@@ -88,6 +88,7 @@ class SiteU {
         let img = new Image()
         img.src = "../img/back.jpg"
         $("#phone").append(img)
+        $(img).css('height', '15%')
         $(img).on("click", () => {
             this.userScreen()
         })
@@ -98,8 +99,9 @@ class SiteU {
         $(div2).append(textarea)
         $("#phone").append(div2)
         $(textarea).focus()
-        let button = $("<button>")
-        $(button).attr("id", "ST4")
+        var button = new Image()
+        button.src = "../img/OK.jpg"
+        $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
             var x = document.querySelector("textarea").value

@@ -203,6 +203,7 @@ class SiteL {
         this.LiderSite = "RST"
         let img = new Image()
         img.src = "../img/OK.jpg"
+        $(img).css('height', '15%')
         $("#phone").append(img)
         $(img).on("click", () => {
             this.STTab.shift()

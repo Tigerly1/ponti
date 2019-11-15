@@ -310,27 +310,15 @@ class SiteL {
             $(input).css("float", "left")
             $(input).css("box-sizing", "border-box")
             $(input).css("display", "inline-block")
-            $(input).on("input", () => {
-                let minVal = Number(Array.from(document.querySelectorAll("input"))[0]
-                    .value)
-                let maxVal = Number(Array.from(document.querySelectorAll("input"))[1]
-                    .value)
-                console.log(minVal, maxVal)
-                minVal < maxVal && minVal > 0
-                    ? $(".btn-grad").css("background-color", "green")
-                    : $(".btn-grad").css("background-color", "initial")
-            })
         }
-        let button = $("<button>")
-        $(button).text("Continue")
-        $(button).css("height", "25%")
-        $(button).css("width", "100%")
-        $(button).addClass("btn-grad")
+        var button = new Image()
+        button.src = "../img/OK.jpg"
+        $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
-            let minVal = Array.from(document.querySelectorAll("input"))[0].value
-            let maxVal = Array.from(document.querySelectorAll("input"))[1].value
-            if (minVal >= 0 && maxVal > minVal) {
+            let minVal = Number(Array.from(document.querySelectorAll("input"))[0].value)
+            let maxVal = Number(Array.from(document.querySelectorAll("input"))[1].value)
+            if (minVal >= 0 && maxVal > minVal && (minVal || maxVal) != NaN, undefined) {
                 this.max = maxVal
                 this.min = minVal
                 console.log("Min: " + minVal)

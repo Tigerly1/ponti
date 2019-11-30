@@ -45,7 +45,7 @@ class SiteU {
         $(div1).attr("id", "adV")
         $(div1).css("position", "absolute")
         $(div1).css("bottom ", "0px")
-        $("#phone").append(div)
+        $("#phone").append(div1)
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")
             $(div).css("color", "rgb(0,77,128)")

@@ -47,6 +47,7 @@ button {
     margin-left: 5%;
 }
 .inputCodeEEC {
+    border-radius: 15px;
     box-sizing: border-box;
     width: 15%;
     margin-right: 10%;

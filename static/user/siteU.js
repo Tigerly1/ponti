@@ -41,6 +41,11 @@ class SiteU {
                 )
             })
         }
+        let div = $("<div>")
+        $(div).attr("id", "adV")
+        $(div).css("position", "absolute")
+        $(div).css("bottom ", "0px")
+        $("#phone").append(div)
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")
             $(div).css("color", "rgb(0,77,128)")
@@ -59,7 +64,7 @@ class SiteU {
             } else {
                 $(div).html("<b>Konsulting Projekty</b>")
             }
-            $("#phone").append(div)
+            $("#adV").append(div)
         }
     }
     userScreen() {

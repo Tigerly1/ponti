@@ -41,10 +41,10 @@ class SiteU {
                 )
             })
         }
-        let div = $("<div>")
-        $(div).attr("id", "adV")
-        $(div).css("position", "absolute")
-        $(div).css("bottom ", "0px")
+        let div1 = $("<div>")
+        $(div1).attr("id", "adV")
+        $(div1).css("position", "absolute")
+        $(div1).css("bottom ", "0px")
         $("#phone").append(div)
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")

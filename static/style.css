@@ -117,14 +117,18 @@ textarea {
 }
 
 #R4 {
-    width: 32%;
+    width: 30%;
     height: 15%;
     float: right;
+    margin-top: 12%;
 }
 
 #R4notifi {
     box-sizing: border-box;
-    width: 5%;
+    width: 10%;
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
     height: 10%;
     float:right;
     font-size: 4em;

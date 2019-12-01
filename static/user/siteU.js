@@ -43,7 +43,7 @@ class SiteU {
         }
         let div1 = $("<div>")
         $(div1).attr("id", "adV")
-        $(div1).css("margin-top", "35%")
+        $(div1).css("margin-top", "60%")
         $("#phone").append(div1)
         for (let i = 0; i < 3; i++) {
             let div = $("<div>")

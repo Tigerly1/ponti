@@ -143,19 +143,22 @@ class SiteL {
              if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
              $(map).append(area)
          } */
-        var img5 = new Image()
-        img5.src = "../img/online.jpg"
-        $(img5).attr("id", "online4R")
-        $("#phone").append(img5)
+        let div1 = $('<div>')
+        $(div1).attr("id", "stats")
+        $("#phone").append(div1)
+        var img2 = new Image()
+        img2.src = "../img/online.jpg"
+        $(img2).attr("id", "online4R")
+        $("#stats").append(img2)
         let div2 = $("<div>")
         $(div2).attr("id", "R4online")
         $(div2).html(this.online)
-        $("#phone").append(div2)
+        $("#stats").append(div2)
         var p = $("<p>")
-        $(p).css("font-size", "5vh")
+        $(p).css("font-size", "4vh")
         $(p).css("float", "right")
         $(p).html("EC" + this.data)
-        $("#phone").append(p)
+        $("#stats").append(p)
         $("#phone").append(
             '<img src="../img/EL.jpg" name="imgmap" usemap="#m_imgmap" border="0" width="100%" height="55%"><map name="m_imgmap"><area  href = "" coords = "0,197,63,249,158,317,268,397,334,445,373,479,462,416,587,295,740,159,740,1,0,1,0,162" id = "yNClick" shape = "poly" ><area target="" alt="" title="" href="" coords="372,929,0,927,0,202,369,485,371,491" id="checkBoxClick" shape="poly"><area target="" alt="" title="" href="" coords="382,486,383,928,739,928,740,165" id="numberClick" shape="poly"></map>'
         )

@@ -122,7 +122,7 @@ class SiteL {
         img.src = "../img/back.jpg"
         $("#phone").append(img)
         $(img).css("width", "100%")
-        $(img).css("height", "15%")
+        $(img).css("height", "10%")
         $(img).on("click", () => {
             $("#phone").empty()
             this.LiderSite = "OC"

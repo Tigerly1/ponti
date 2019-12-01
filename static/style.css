@@ -21,8 +21,9 @@ img {
 #phone {
     box-sizing: border-box;
     position: relative;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    padding: 5%;
 }
 #inputer {
     position: relative;
@@ -71,18 +72,18 @@ button {
 #online4R {
     position: absolute;
     left: 10px;
-    top: 15%;
-    width: 15%;
-    height: 10%;
+    top: 12%;
+    width: 10%;
+    height: 5%;
 }
 
 #R4online {
     position: absolute;
     left: 25%;
-    top: 15%;
+    top: 12%;
     width: 15%;
     height: 10%;
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 .ST4A {

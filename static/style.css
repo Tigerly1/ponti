@@ -79,11 +79,13 @@ button {
 #online4R {
     width: 10%;
     height: 100%;
+    float: left;
 }
 
 #R4online {
     width: 15%;
     font-size: 4vh;
+    float: left;
 }
 
 .ST4A {

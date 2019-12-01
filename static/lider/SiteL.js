@@ -156,7 +156,8 @@ class SiteL {
         $("#stats").append(div2)
         var p = $("<p>")
         $(p).css("font-size", "4vh")
-        $(p).css("float", "right")
+        $(p).css("float", "left")
+        $(p).css("margin-left", "150px")
         $(p).html("EC" + this.data)
         $("#stats").append(p)
         $("#phone").append(

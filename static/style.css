@@ -77,19 +77,12 @@ button {
 }
 
 #online4R {
-    position: absolute;
-    left: 10px;
-    top: 12%;
     width: 10%;
-    height: 5%;
+    height: 100%;
 }
 
 #R4online {
-    position: absolute;
-    left: 25%;
-    top: 12%;
     width: 15%;
-    height: 10%;
     font-size: 4vh;
 }
 

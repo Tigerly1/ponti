@@ -75,7 +75,10 @@ button {
     width: 30%;
     height: 50%;
 }
-
+#mainMenu{
+    width:100%;
+    height: 50%;
+}
 #online4R {
     width: 10%;
     height: 100%;

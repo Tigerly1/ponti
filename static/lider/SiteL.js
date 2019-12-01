@@ -186,14 +186,14 @@ class SiteL {
             this.LiderSite = "RCB"
             this.checkbox()
         })
-        var img4 = new Image()
-        img4.src = "../img/ST.jpg"
-        $(img4).attr("id", "R4")
-        $("#phone").append(img4)
         let div = $("<div>")
         $(div).attr("id", "R4notifi")
         $(div).html(this.STTab.length / 2)
         $("#phone").append(div)
+        var img4 = new Image()
+        img4.src = "../img/ST.jpg"
+        $(img4).attr("id", "R4")
+        $("#phone").append(img4)
         if (this.STTab.length > 0) {
             $(img4).on("click", () => {
                 $("#phone").empty()

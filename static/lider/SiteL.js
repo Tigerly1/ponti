@@ -160,8 +160,11 @@ class SiteL {
         $(p).css("margin-left", "150px")
         $(p).html("EC" + this.data)
         $("#stats").append(p)
-        $("#phone").append(
-            '<img src="../img/EL.jpg" name="imgmap" usemap="#m_imgmap" border="0" width="100%" height="45%" style="margin-top="20%"><map name="m_imgmap"><area  href = "" coords = "0,197,63,249,158,317,268,397,334,445,373,479,462,416,587,295,740,159,740,1,0,1,0,162" id = "yNClick" shape = "poly" ><area target="" alt="" title="" href="" coords="372,929,0,927,0,202,369,485,371,491" id="checkBoxClick" shape="poly"><area target="" alt="" title="" href="" coords="382,486,383,928,739,928,740,165" id="numberClick" shape="poly"></map>'
+        let div3 = $('<div>')
+        $(div3).attr("id", "mainMenu")
+        $("#phone").append(div3)
+        $(div3).append(
+            '<img src="../img/EL.jpg" name="imgmap" usemap="#m_imgmap" border="0" width="100%" height="45%"><map name="m_imgmap"><area  href = "" coords = "0,197,63,249,158,317,268,397,334,445,373,479,462,416,587,295,740,159,740,1,0,1,0,162" id = "yNClick" shape = "poly" ><area target="" alt="" title="" href="" coords="372,929,0,927,0,202,369,485,371,491" id="checkBoxClick" shape="poly"><area target="" alt="" title="" href="" coords="382,486,383,928,739,928,740,165" id="numberClick" shape="poly"></map>'
         )
         console.log(document.body)
         $("#yNClick").on("click", e => {

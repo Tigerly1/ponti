@@ -73,10 +73,10 @@ button {
     width: 30%;
     height: 50%;
 }
-#mainMenu{
-    width:100%;
+#mainMenu {
+    width: 100%;
     height: 50%;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 #online4R {
     width: 10%;
@@ -117,19 +117,19 @@ textarea {
 }
 
 #R4 {
-    width: 30%;
-    height: 10%;
+    width: 40%;
+    height: 15%;
     float: right;
     margin-top: 5%;
 }
 
 #R4notifi {
     box-sizing: border-box;
-    width: 10%;
-    margin-top: 7%;
+    width: 20%;
+    margin-top: 5%;
     margin-left: 10%;
-    height: 8%;
-    float:right;
+    height: 15%;
+    float: right;
     font-size: 4em;
     color: rgb(7, 168, 7);
 }

@@ -120,13 +120,11 @@ textarea {
     width: 40%;
     height: 15%;
     float: right;
-    margin-bottom: 50px;
 }
 
 #R4notifi {
     box-sizing: border-box;
     width: 20%;
-    margin-bottom: 50px;
     margin-left: 10%;
     height: 15%;
     float: right;

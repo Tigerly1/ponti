@@ -121,14 +121,10 @@ textarea {
 }
 
 #R4 {
-<<<<<<< HEAD
     position: absolute;
     bottom: 10px;
     width: 40%;
     right: 10px;
-=======
-    width: 40%;
->>>>>>> 0cc962e5a5c2abc9383910d2d58cc3f4b386bd8b
     height: 15%;
     float: right;
 }
@@ -138,19 +134,11 @@ textarea {
     bottom: 12px;
     box-sizing: border-box;
     width: 20%;
-<<<<<<< HEAD
     right: 37%;
     margin-left: 10%;
     height: 15%;
     float: right;
     font-size: 15vh;
-=======
-    margin-left: 10%;
-    height: 15%;
-    float: right;
-    font-size: 6em;
-    color: rgb(7, 168, 7);
->>>>>>> 0cc962e5a5c2abc9383910d2d58cc3f4b386bd8b
 }
 
 #ST4 {

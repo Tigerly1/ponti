@@ -77,10 +77,10 @@ button {
     width: 30%;
     height: 50%;
 }
-#mainMenu{
-    width:100%;
+#mainMenu {
+    width: 100%;
     height: 50%;
-    margin-top: 20%;
+    margin-top: 15%;
 }
 #online4R {
     width: 10%;
@@ -121,10 +121,14 @@ textarea {
 }
 
 #R4 {
+<<<<<<< HEAD
     position: absolute;
     bottom: 10px;
     width: 40%;
     right: 10px;
+=======
+    width: 40%;
+>>>>>>> 0cc962e5a5c2abc9383910d2d58cc3f4b386bd8b
     height: 15%;
     float: right;
 }
@@ -134,11 +138,19 @@ textarea {
     bottom: 12px;
     box-sizing: border-box;
     width: 20%;
+<<<<<<< HEAD
     right: 37%;
     margin-left: 10%;
     height: 15%;
     float: right;
     font-size: 15vh;
+=======
+    margin-left: 10%;
+    height: 15%;
+    float: right;
+    font-size: 6em;
+    color: rgb(7, 168, 7);
+>>>>>>> 0cc962e5a5c2abc9383910d2d58cc3f4b386bd8b
 }
 
 #ST4 {

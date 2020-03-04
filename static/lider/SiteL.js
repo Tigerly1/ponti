@@ -87,18 +87,8 @@ class SiteL {
             this.LiderSite = "OC"
             this.liderChoice()
         })
-        var img1 = new Image()
-        img1.src = "../img/close.jpg"
-        $("#phone").append(img1)
-        $("#phone").append(
-            "<p style='text-align: center'>" +
-            "CLOSE " +
-            this.data +
-            " ?" +
-            "</p>"
-        )
         var img2 = new Image()
-        img2.src = "../img/OK.jpg"
+        img2.src = "../img/close.jpg"
         $("#phone").append(img2)
         $(img2).on("click", () => {
             $("#phone").empty()
@@ -143,7 +133,7 @@ class SiteL {
              if (i == 2) var area = $('<area target="_blank" id="yNClick" alt="yesNo" title="yesNo" href="https://www.facebook.com" coords="663,681,2,172,2,2,1331,0,1324,118" shape="poly">')
              $(map).append(area)
          } */
-        let div1 = $('<div>')
+        let div1 = $("<div>")
         $(div1).attr("id", "stats")
         $("#phone").append(div1)
         var img2 = new Image()
@@ -160,7 +150,7 @@ class SiteL {
         $(p).css("margin-right", "10px")
         $(p).html("EC" + this.data)
         $("#stats").append(p)
-        let div3 = $('<div>')
+        let div3 = $("<div>")
         $(div3).attr("id", "mainMenu")
         $("#phone").append(div3)
         $(div3).append(
@@ -210,7 +200,7 @@ class SiteL {
         this.LiderSite = "RST"
         let img = new Image()
         img.src = "../img/OK.jpg"
-        $(img).css('height', '15%')
+        $(img).css("height", "15%")
         $("#phone").append(img)
         $(img).on("click", () => {
             this.STTab.shift()
@@ -324,8 +314,12 @@ class SiteL {
         $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
-            let minVal = Number(Array.from(document.querySelectorAll("input"))[0].value)
-            let maxVal = Number(Array.from(document.querySelectorAll("input"))[1].value)
+            let minVal = Number(
+                Array.from(document.querySelectorAll("input"))[0].value
+            )
+            let maxVal = Number(
+                Array.from(document.querySelectorAll("input"))[1].value
+            )
             if (minVal >= 0 && maxVal > minVal && (minVal && maxVal) != NaN) {
                 this.max = maxVal
                 this.min = minVal
@@ -362,7 +356,7 @@ class SiteL {
     numberResult(array) {
         this.LiderSite = "RRORF"
         console.log(this.online)
-        array.sort(function (a, b) {
+        array.sort(function(a, b) {
             return a - b
         })
         console.log(array)
@@ -502,8 +496,8 @@ class SiteL {
             }
             let p = $("<p>")
             $(p).html(tabLetters[i])
-            $(p).css({ 'float': 'right' })
-            $(p).css({ 'margin-right': '50%' })
+            $(p).css({ float: "right" })
+            $(p).css({ "margin-right": "50%" })
             $(div1).append(div3)
             $(div3).append(p)
             $(div3).append(div4)
@@ -528,8 +522,8 @@ class SiteL {
                 })
             }
             let p = $("<p>")
-            $(p).css({ 'float': 'right' })
-            $(p).css({ 'margin-right': '50%' })
+            $(p).css({ float: "right" })
+            $(p).css({ "margin-right": "50%" })
             $(p).html(i)
             $(div2).append(div3)
             $(div3).append(div4)
@@ -592,8 +586,8 @@ class SiteL {
             if (typeof validation == "string")
                 $(p).html(tabLetters[i] + " : " + filtered.length)
             else $(p).html(i + " : " + filtered.length)
-            $(p).css({ 'float': 'right' })
-            $(p).css({ 'margin-right': '50%' })
+            $(p).css({ float: "right" })
+            $(p).css({ "margin-right": "50%" })
             $(div).append(div3)
             $(div3).append(p)
         }

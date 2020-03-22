@@ -22,7 +22,9 @@ setInterval(() => {
 app.get('/L', function (req, res) {
     res.sendFile(__dirname + '/static/lider.html');
 });
-
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/static/lider.html');
+});
 app.get('/U', function (req, res) {
     res.sendFile(__dirname + '/static/user.html');
 });

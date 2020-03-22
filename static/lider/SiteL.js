@@ -80,7 +80,7 @@ class SiteL {
         $("#phone").empty()
         this.LiderSite = "CCM"
         var img = new Image()
-        img.src = "../img/back.jpg"
+        img.src = "../img/backToMain.jpg"
         $("#phone").append(img)
         $(img).on("click", () => {
             $("#phone").empty()

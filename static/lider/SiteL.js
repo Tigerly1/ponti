@@ -160,9 +160,10 @@ class SiteL {
         $("#yNClick").on("click", e => {
             e.preventDefault()
             $("#phone").empty()
-            this.LiderSite = "RYN"
-            this.tNChoice()
+            this.LiderSite = "RRYN"
+            this.tNRaport()
             rooms.yesNoEvent()
+            rooms.yesNoEventResult()
         })
         $("#numberClick").on("click", e => {
             e.preventDefault()
@@ -221,26 +222,6 @@ class SiteL {
         let div3 = $("<div style='text-align:center'>")
         $(div3).html(this.STTab[1])
         $("#phone").append(div3)
-        rooms.cookies(this.data, this.LiderSite)
-    }
-    tNChoice() {
-        this.LiderSite = "RYN"
-        var img = new Image()
-        img.src = "../img/TN.jpg"
-        $(img).css("height", "80%")
-        $("#phone").append(img)
-        var img1 = new Image()
-        img1.id = "report"
-        img1.src = "../img/report.jpg"
-        $(img1).css("height", "20%")
-        $("#phone").append(img1)
-        $(img1).on("click", () => {
-            rooms.yesNoEventResult()
-        })
-        /* $(img1).on("click", () => {
-                                                    $("#phone").empty()
-            this.LiderSite = "YN"
-                                            }) */
         rooms.cookies(this.data, this.LiderSite)
     }
     tNRaport(data) {

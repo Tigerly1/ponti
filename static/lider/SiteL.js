@@ -262,6 +262,12 @@ class SiteL {
         })
         rooms.cookies(this.data, this.LiderSite)
     }
+    YNUpdate(data){
+        if(this.LiderSite=="RRYN"){
+            document.querySelector("#phone > div:nth-child(1) > p").innerHTML = data[0]
+            document.querySelector("#phone > div:nth-child(2) > p").innerHTML = data[1]
+        }
+    }
     numberChoose() {
         var img = new Image()
         img.src = "../img/back.jpg"

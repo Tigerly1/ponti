@@ -103,6 +103,11 @@ class Rooms {
             siteL.tNRaport(data)
         })
     }
+    yesNoEventResultUpdate(){
+        this.Lider.on("YNUpdate", data => {
+            siteL.YNUpdate(data)
+        })
+    }
     numberEvent(minVal, maxVal) {
         this.Lider.emit("numberEvent", { min: minVal, max: maxVal })
     }

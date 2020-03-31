@@ -161,7 +161,6 @@ class SiteL {
             e.preventDefault()
             $("#phone").empty()
             this.LiderSite = "RRYN"
-            this.tNRaport()
             rooms.yesNoEvent()
             rooms.yesNoEventResult()
         })

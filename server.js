@@ -190,9 +190,9 @@ const User = io
 
                             if (data == "T") element.yesNoTab[0] = element.yesNoTab[0] + 1
                             else if (data == "N") element.yesNoTab[1] = element.yesNoTab[1] + 1
+                            io.of("/L").in(room).emit('YNUpdate', element.yesNoTab)
                         }
                     })
-                    io.of("/L").in(room).emit('YNUpdate', element.yesNoTab)
                     console.log(liderEverythingTab)
 
                     //io.of("/L").in(room).emit('TlubN', data);

@@ -130,9 +130,11 @@ class Rooms {
     }
     checkboxEventResult(){
         this.Lider.emit("checkboxEventResult")
+        this.Lider.off("checkboxEventReported")
         this.Lider.on("checkboxEventReported", data => {
             siteL.checkboxResult(data)
         })
+
     }
     online() {
         this.Lider.emit("getOnline")

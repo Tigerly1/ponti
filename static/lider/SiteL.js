@@ -462,6 +462,7 @@ class SiteL {
             if (validation > "A" || validation > 0) {
                 $("#phone").empty()
                 rooms.checkboxEvent(validation)
+                rooms.checkboxEventResult()
             }
         })
         for (let i = 0; i < 5; i++) {

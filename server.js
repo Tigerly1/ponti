@@ -123,12 +123,20 @@ const Lider = io
                         if (element.eCode == room) {
                             element.checkboxRange = data
                             element.checkboxTab = []
-                            lider.emit('checkboxEventReported', { tab: element.checkboxTab, range: element.checkboxRange })
+                            
                             
                         }
                     })
                     io.of('/U').in(room).emit('checkboxChoose', data)
                 })
+                lider.on('checkboxEventResult', (data) => {
+                    liderEverythingTab.forEach((element) => {
+                        if (element.eCode == room) {     
+                            lider.emit('checkboxEventReported', { tab: element.checkboxTab, range: element.checkboxRange })
+                        }
+                    })
+                })
+                
                 lider.on('RSTShift', () => {
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {

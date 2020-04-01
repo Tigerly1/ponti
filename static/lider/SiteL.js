@@ -519,6 +519,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     checkboxResult(data) {
+        rooms.checkboxEventResultUpdate()
         var array = data.tab
         var validation = data.range
         this.LiderSite = "RRRCB"

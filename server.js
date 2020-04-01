@@ -206,6 +206,7 @@ const User = io
                         if (element.eCode == room) {
                             element.checkboxTab.push(data)
                         }
+                        io.of("/L").in(room).emit('CBUpdate', data)
                     })
                     //io.of("/L").in(room).emit('checkbox', data)
                 })

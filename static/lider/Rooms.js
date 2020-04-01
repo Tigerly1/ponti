@@ -136,6 +136,11 @@ class Rooms {
         })
 
     }
+    checkboxEventResultUpdate(){
+        this.Lider.on("CBUpdate", data => {
+            console.log(data)
+        })
+    }
     online() {
         this.Lider.emit("getOnline")
         this.Lider.off("onGetOnline")

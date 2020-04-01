@@ -462,7 +462,7 @@ class SiteL {
             if (validation > "A" || validation > 0) {
                 $("#phone").empty()
                 rooms.checkboxEvent(validation)
-                rooms.checkboxEventAwaiting()
+                rooms.checkboxEventResult()
             }
         })
         for (let i = 0; i < 5; i++) {
@@ -516,29 +516,6 @@ class SiteL {
             $(div3).append(div4)
             $(div3).append(p)
         }
-        rooms.cookies(this.data, this.LiderSite)
-    }
-    checkboxWaiting(validation) {
-        this.LiderSite = "RRCB"
-        this.validation = validation
-        for (let i = 0; i < 2; i++) {
-            let div = $("<div>")
-            $(div).addClass("table")
-            console.log(typeof validation)
-            if (i == 0 && typeof validation == "string") $(div).html("A")
-            else if (i == 0 && typeof validation == "number") $(div).html("0")
-            if (i == 1) $(div).html(validation)
-            $("#phone").append(div)
-        }
-        var img1 = new Image()
-        img1.id = "report"
-        img1.src = "../img/report.jpg"
-        $("#phone").append(img1)
-        $(img1).on("click", () => {
-            $("#phone").empty()
-            this.LiderSite = "RCB"
-            rooms.checkboxEventResult()
-        })
         rooms.cookies(this.data, this.LiderSite)
     }
     checkboxResult(data) {

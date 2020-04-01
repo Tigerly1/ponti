@@ -127,20 +127,12 @@ class Rooms {
     }
     checkboxEvent(validation) {
         this.Lider.emit("checkboxEvent", validation)
-    }
-    checkboxEventAwaiting() {
-        this.Lider.emit("checkboxEventWaiting")
-        this.Lider.off("checkboxEventAwaiting")
-        this.Lider.on("checkboxEventAwaiting", data => {
-            siteL.checkboxWaiting(data)
-        })
-    }
-    checkboxEventResult() {
-        this.Lider.emit("checkboxEventReport")
-        this.Lider.off("checkboxEventReported")
         this.Lider.on("checkboxEventReported", data => {
             siteL.checkboxResult(data)
         })
+    }
+    checkboxEventResult() {
+        
     }
     online() {
         this.Lider.emit("getOnline")

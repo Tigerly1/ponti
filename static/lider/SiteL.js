@@ -224,6 +224,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     tNRaport(data) {
+        rooms.yesNoEventResultUpdate()
         this.LiderSite = "RRYN"
         $("#phone").empty()
         for (let i = 0; i < 2; i++) {

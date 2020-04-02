@@ -563,6 +563,7 @@ class SiteL {
         if (typeof data == "string")
            var x = tabLetters.indexOf(data)+1
         else var x = data + 1
-        console.log(document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML)
+        let query = document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML
+        query[query.length - 1] ++
     }
 }

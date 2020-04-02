@@ -561,8 +561,8 @@ class SiteL {
     checkboxResultUpdate(data){
         let tabLetters = ["A", "B", "C", "D", "E"]
         if (typeof data == "string")
-            x = tabLetters.indexOf(data)+1
-        else x = data + 1
+           var x = tabLetters.indexOf(data)+1
+        else var x = data + 1
         document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML[-1] ++
     }
 }

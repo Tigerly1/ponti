@@ -564,8 +564,7 @@ class SiteL {
            var x = tabLetters.indexOf(data)+1
         else var x = data + 1
         let query = document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML
-        console.log(query)
         let number = Number(query[query.length-1])
-        console.log(number)
+        query = data + " : " + number
     }
 }

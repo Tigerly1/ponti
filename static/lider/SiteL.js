@@ -565,6 +565,6 @@ class SiteL {
         else var x = data + 1
         let query = document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML
         let number = Number(query[query.length-1]+1)
-        query = data + " : " + number
+        document.querySelector("#checkboxCheckU > div:nth-child("+x+") > p").innerHTML = data + " : " + number
     }
 }

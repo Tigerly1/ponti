@@ -139,7 +139,7 @@ class Rooms {
     checkboxEventResultUpdate(){
         this.Lider.off("CBUpdate")
         this.Lider.on("CBUpdate", data => {
-            console.log(data)
+            siteL.checkboxResultUpdate(data)
         })
     }
     online() {

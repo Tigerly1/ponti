@@ -371,7 +371,7 @@ class SiteL {
         } else {
             var MED = array[Math.floor((IL - 1) / 2)]
         }
-        let divID = ["MIN", "MED", "MAX","Q1", "Q3", "AV", "IL"]
+        let divID = ["MIN", "MED", "MAX"," ", "Q1", "Q3", "AV", "IL"]
         for (let i = 0; i < 6; i++) {
             let div = $("<div>")
             $(div).addClass("borderWithNumber")
@@ -399,7 +399,7 @@ class SiteL {
                 var mainDiv3 = $("<div>")
                 $(mainDiv3).attr("id", "thirdNumberResult")
                 $("#phone").append(mainDiv3)
-                $(div).attr("id", "margin15")
+                $(div).css("margin-top", "50%")
                 $(div).html(Q1)
             }
             if (i == 5) $(div).html(Q3)

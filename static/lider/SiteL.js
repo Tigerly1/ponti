@@ -375,7 +375,7 @@ class SiteL {
         for (let i = 0; i < 6; i++) {
             let div = $("<div>")
             $(div).addClass("borderWithNumber")
-            div.id = divID[i]
+            $(div).attr("id", divID[i]) 
             if (i == 0) {
                 var mainDiv1 = $("<div>")
                 $(mainDiv1).attr("id", "firstNumberResult")
@@ -406,17 +406,19 @@ class SiteL {
             if (i > 3) $(mainDiv3).append(div)
         }
         let div = $("<div>")
-        let b = $("<b>")
-        div.append(b)
-        b.id = divID[5]
-        $(b).html(AV)
+        let divIn = $("<div>")
+        div.append(divIn)
+        $(divIn).attr("id", divID[5])
+        $(divIn).html(AV)
+        $(divIn).css("display", "inline-block")
         $("#phone").append(div)
         $(div).html("Średnia: ")
         let div1 = $("<div>")
-        let b1 = $("<b>")
-        div1.append(b1)
-        b1.id = divID[6]
-        $(b1).html(IL)
+        let divIn1 = $("<div>")
+        div1.append(divIn1)
+        $(divIn1).attr("id", divID[6])
+        $(divIn1).html(IL)
+        $(divIn1).css("display", "inline-block")
         $("#phone").append(div1)
         $(div1).html("Ilość odpowiedzi: ")
         rooms.cookies(this.data, this.LiderSite)

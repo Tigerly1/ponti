@@ -322,6 +322,7 @@ class SiteL {
         rooms.cookies(this.data, this.LiderSite)
     }
     numberResult(array) {
+        rooms.numberEventResultUpdate()
         this.LiderSite = "RRORF"
         console.log(this.online)
         array.sort(function(a, b) {

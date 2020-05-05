@@ -407,7 +407,7 @@ class SiteL {
         }
         let div = $("<div>")
         let divIn = $("<div>")
-        div.append(divIn)
+        $(div).append(divIn)
         $(divIn).attr("id", divID[5])
         $(divIn).html(AV)
         $(divIn).css("display", "inline-block")
@@ -415,7 +415,7 @@ class SiteL {
         $(div).html("Średnia: ")
         let div1 = $("<div>")
         let divIn1 = $("<div>")
-        div1.append(divIn1)
+        $(div1).append(divIn1)
         $(divIn1).attr("id", divID[6])
         $(divIn1).html(IL)
         $(divIn1).css("display", "inline-block")

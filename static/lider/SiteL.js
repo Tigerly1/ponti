@@ -5,6 +5,7 @@ class SiteL {
         this.validation = ""
         this.STTab = []
         this.online = 0
+        this.numbersTab = []
     }
     beginning() {
         $("#phone").empty()
@@ -314,6 +315,7 @@ class SiteL {
                 console.log("Max: " + maxVal)
                 $("#phone").empty()
                 rooms.numberEvent(minVal, maxVal)
+                this.numbersTab = []
                 rooms.online()
             }
         })
@@ -325,6 +327,7 @@ class SiteL {
         array.sort(function(a, b) {
             return a - b
         })
+        this.numbersTab = array
         console.log(array)
         console.log(this.min)
         console.log(this.max)
@@ -338,27 +341,27 @@ class SiteL {
             this.LiderSite = "4R"
         })
         let IL = array.length
-        console.log(IL)
+        //console.log(IL)
         let MIN = Math.min(...array)
-        console.log(MIN)
+        //console.log(MIN)
         let MAX = Math.max(...array)
-        console.log(MAX)
+        //console.log(MAX)
         var AV = 0
         array.map((el, i) => {
             AV += el
             if (i + 1 == IL) AV = Math.round(AV / IL)
         })
-        console.log(AV)
+        //console.log(AV)
         let Q1 =
             (array[Math.floor((IL - 1) / 4)] +
                 array[Math.floor((IL - 1) / 4 + 1)]) /
             2
-        console.log(Q1)
+        //console.log(Q1)
         let Q3 =
             (array[Math.floor((IL - 1) / 2 + (IL - 1) / 4)] +
                 array[Math.floor((IL - 1) / 2 + (IL - 1) / 4 + 1)]) /
             2
-        console.log(Q3)
+        //console.log(Q3)
         if (IL == 1) {
             Q1 = array[0]
             Q3 = array[0]
@@ -409,7 +412,7 @@ class SiteL {
         let divIn = $("<div>")
         $(div).html("Średnia: ")
         $(div).append(divIn)
-        $(divIn).attr("id", divID[5])
+        $(divIn).attr("id", divID[6])
         $(divIn).html(AV)
         $(divIn).css("display", "inline-block")
         $("#phone").append(div)
@@ -417,14 +420,55 @@ class SiteL {
         let divIn1 = $("<div>")
         $(div1).html("Ilość odpowiedzi: ")
         $(div1).append(divIn1)
-        $(divIn1).attr("id", divID[6])
+        $(divIn1).attr("id", divID[7])
         $(divIn1).html(IL)
         $(divIn1).css("display", "inline-block")
         $("#phone").append(div1)
         rooms.cookies(this.data, this.LiderSite)
     }
     numberResultUpdate(data){
-
+        this.numbersTab.push(data)
+        let array = this.numbersTab
+        let IL = array.length
+        //console.log(IL)
+        let MIN = Math.min(...array)
+        //console.log(MIN)
+        let MAX = Math.max(...array)
+        //console.log(MAX)
+        var AV = 0
+        array.map((el, i) => {
+            AV += el
+            if (i + 1 == IL) AV = Math.round(AV / IL)
+        })
+        //console.log(AV)
+        let Q1 =
+            (array[Math.floor((IL - 1) / 4)] +
+                array[Math.floor((IL - 1) / 4 + 1)]) /
+            2
+        //console.log(Q1)
+        let Q3 =
+            (array[Math.floor((IL - 1) / 2 + (IL - 1) / 4)] +
+                array[Math.floor((IL - 1) / 2 + (IL - 1) / 4 + 1)]) /
+            2
+        //console.log(Q3)
+        if (IL == 1) {
+            Q1 = array[0]
+            Q3 = array[0]
+        }
+        if (IL % 2 == 0) {
+            var MED =
+                (array[Math.floor((IL - 1) / 2)] +
+                    array[Math.floor((IL - 1) / 2 + 1)]) /
+                2
+        } else {
+            var MED = array[Math.floor((IL - 1) / 2)]
+        }
+        let divID = ["MIN", "MED", "MAX", "Q1", "Q3", "AV", "IL"]
+        let divID1 = [MIN, MED, MAX, Q1, Q3, AV, IL]
+        for (let i = 0; i<divID.length; i++){
+            document.getElementById(divID[i]).innerHTML = divID1[i]
+        }
+        
     }
     checkbox() {
         var img = new Image()

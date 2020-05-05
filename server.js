@@ -72,7 +72,6 @@ const Lider = io
                 lider.on('getOnline', () => {
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
-                            console.log('XD')
                             lider.emit('onGetOnline', element.online)
                         }
                     })
@@ -191,6 +190,7 @@ const User = io
                         if (element.eCode == room) {
                             element.numberTab.push(data)
                         }
+                        io.of("/L").in(room).emit('NumUpdate', data)
                     })
                     //io.of("/L").in(room).emit('number', data)
                 })

@@ -118,6 +118,12 @@ class Rooms {
             siteL.numberResult(data)
         })
     }
+    numberEventResultUpdate(){
+        this.Lider.off("NumUpdate")
+        this.Lider.on("NumUpdate", data => {
+            siteL.numberResultUpdate(data)
+        })
+    }
     checkboxEvent(validation) {
         this.Lider.emit("checkboxEvent", validation)
     }

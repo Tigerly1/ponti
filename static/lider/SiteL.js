@@ -314,13 +314,12 @@ class SiteL {
                 console.log("Max: " + maxVal)
                 $("#phone").empty()
                 rooms.numberEvent(minVal, maxVal)
-                rooms.numberEventResult()
+                rooms.online()
             }
         })
         rooms.cookies(this.data, this.LiderSite)
     }
     numberResult(array) {
-        rooms.online()
         this.LiderSite = "RRORF"
         console.log(this.online)
         array.sort(function(a, b) {

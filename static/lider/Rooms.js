@@ -111,13 +111,6 @@ class Rooms {
     numberEvent(minVal, maxVal) {
         this.Lider.emit("numberEvent", { min: minVal, max: maxVal })
     }
-    numberWaitingForResult() {
-        this.Lider.emit("numberEventWaiting")
-        this.Lider.off("numberEventAwaiting")
-        this.Lider.on("numberEventAwaiting", data => {
-            siteL.numberReport(data)
-        })
-    }
     numberEventResult() {
         this.Lider.emit("numberEventReport")
         this.Lider.off("numberEventReported")

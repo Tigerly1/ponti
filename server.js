@@ -104,13 +104,6 @@ const Lider = io
                     })
                     io.of('/U').in(room).emit('numberChoose', data)
                 })
-                lider.on('numberEventWaiting', () => {
-                    liderEverythingTab.forEach((element) => {
-                        if (element.eCode == room) {
-                            lider.emit('numberEventAwaiting', { min: element.minNumber, max: element.maxNumber })
-                        }
-                    })
-                })
                 lider.on('numberEventReport', () => {
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {

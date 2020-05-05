@@ -314,33 +314,13 @@ class SiteL {
                 console.log("Max: " + maxVal)
                 $("#phone").empty()
                 rooms.numberEvent(minVal, maxVal)
-                rooms.numberWaitingForResult()
+                rooms.numberEventResult()
             }
         })
         rooms.cookies(this.data, this.LiderSite)
     }
-    numberReport(data) {
-        this.LiderSite = "RROF"
-        for (let i = 0; i < 2; i++) {
-            var div = $("<div>")
-            if (i == 0) $(div).html(data.min)
-            else $(div).html(data.max)
-            $(div).addClass("table")
-            $("#phone").append(div)
-        }
-
-        var img1 = new Image()
-        img1.id = "report"
-        img1.src = "../img/report.jpg"
-        $("#phone").append(img1)
-        $(img1).on("click", () => {
-            $("#phone").empty()
-            this.LiderSite = "RROF"
-            rooms.online()
-        })
-        rooms.cookies(this.data, this.LiderSite)
-    }
     numberResult(array) {
+        rooms.online()
         this.LiderSite = "RRORF"
         console.log(this.online)
         array.sort(function(a, b) {

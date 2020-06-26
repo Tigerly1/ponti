@@ -29,7 +29,7 @@ app.get('/U', function (req, res) {
     res.sendFile(__dirname + '/static/user.html');
 });
 app.get('/data', function (req, res) {
-    res.json("<h2>" + JSON(liderEverythingTab) + "</h2>" )
+    res.json("<h2>" + JSON.parse(liderEverythingTab) + "</h2>" )
 });
 const Lider = io
     .of("/L")

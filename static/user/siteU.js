@@ -164,7 +164,10 @@ class SiteU {
             $(div).css("text-align", "center")
             let minVal = data.min
             let maxVal = data.max
-            if (i == 0) $(div).html(minVal)
+            if (i == 0) {
+                $(div).css("margin-left", "10%")
+                $(div).html(minVal)
+            }
             else if (i == 1) $(div).html(maxVal)
             else if (i == 2) {
                 var input = $('<input type="tel">')

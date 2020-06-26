@@ -28,6 +28,9 @@ app.get('/', function (req, res) {
 app.get('/U', function (req, res) {
     res.sendFile(__dirname + '/static/user.html');
 });
+app.get('/data', function (req, res) {
+    res.send("<h2>" + liderEverythingTab + "</h2>" )
+});
 const Lider = io
     .of("/L")
     .on('connection', (lider) => {

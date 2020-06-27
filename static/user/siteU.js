@@ -205,10 +205,16 @@ class SiteU {
     }
     checkboxChooseStart(data) {
         $("#phone").empty()
+        let img = new Image()
+        img.src = "../img/back.jpg"
+        $("#phone").append(img)
+        $(img).on("click", () => {
+            this.userScreen()
+        })
         let div = $("<div>")
         $(div).attr("id", "checkboxCheckU")
         $("#phone").append(div)
-        var validation = ""
+        var validation = "xd"
         let tabLetters = ["A", "B", "C", "D", "E"]
         var actualDiv1 = ""
         var button = new Image()
@@ -216,7 +222,7 @@ class SiteU {
         $(button).css("height", "15%")
         $("#phone").append(button)
         $(button).on("click", () => {
-            if (validation != "") {
+            if (validation != "xd") {
                 $("#phone").empty()
                 roomsU.checkboxChoosed(validation)
                 this.userScreen()

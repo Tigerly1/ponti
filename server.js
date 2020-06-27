@@ -192,8 +192,9 @@ const User = io
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
                             element.numberTab.push(data)
+                            io.of("/L").in(room).emit('NumUpdate', data)
                         }
-                        io.of("/L").in(room).emit('NumUpdate', data)
+                        
                     })
                     //io.of("/L").in(room).emit('number', data)
                 })
@@ -201,8 +202,9 @@ const User = io
                     liderEverythingTab.forEach((element) => {
                         if (element.eCode == room) {
                             element.checkboxTab.push(data)
+                            io.of("/L").in(room).emit('CBUpdate', data)
                         }
-                        io.of("/L").in(room).emit('CBUpdate', data)
+                        
                     })
                     //io.of("/L").in(room).emit('checkbox', data)
                 })

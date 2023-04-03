@@ -12,12 +12,12 @@ tele / video conferencing
  # use it on phones / tablets
 
 -Leader
--https://pontiapk.herokuapp.com/
+-https://ponti-apk.herokuapp.com/
 
 [![image.png](https://i.postimg.cc/LXYGTPP4/image.png)](https://postimg.cc/HcmSWV3F)
 
 -User
--https://pontiapk.herokuapp.com/U
+-https://ponti-apk.herokuapp.com/U
 
 [![image.png](https://i.postimg.cc/SscJ1qCv/image.png)](https://postimg.cc/5YN4jhPB)
 

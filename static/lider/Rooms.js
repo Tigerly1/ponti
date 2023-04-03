@@ -12,7 +12,7 @@ class Rooms {
     io(host) {
         if (host == "localhost") return io.connect("http://localhost:3000/L")
         else if (host == "ponti") {
-            return io.connect("https://pontiapk.herokuapp.com/L")
+            return io.connect("https://ponti-apk.herokuapp.com/L")
         }
     }
     cookies(data, liderChoice) {

@@ -41,30 +41,30 @@ class SiteU {
                 )
             })
         }
-        let div1 = $("<div>")
-        $(div1).attr("id", "adV")
-        $(div1).css("margin-top", "60%")
-        $("#phone").append(div1)
-        for (let i = 0; i < 3; i++) {
-            let div = $("<div>")
-            $(div).css("color", "rgb(0,77,128)")
-            $(div).css("font-size", "150%")
-            $(div).css("margin-top", "5%")
-            $(div).css("text-align", "center")
-            if (i == 0) {
-                $(div).html("<b>Zarządzanie Operacyjne</b>")
-                $(div).css("margin-top", "5%")
-            } else if (i == 1) {
-                $(div).css("color", "rgb(0,0,0)")
-                $(div).html("<b>sme4u.eu</b>")
-                $(div).on("click", () => {
-                    window.location.href = "https://sme4u.eu"
-                })
-            } else {
-                $(div).html("<b>Konsulting Projekty</b>")
-            }
-            $("#adV").append(div)
-        }
+        // let div1 = $("<div>")
+        // $(div1).attr("id", "adV")
+        // $(div1).css("margin-top", "60%")
+        // $("#phone").append(div1)
+        // for (let i = 0; i < 3; i++) {
+        //     let div = $("<div>")
+        //     $(div).css("color", "rgb(0,77,128)")
+        //     $(div).css("font-size", "150%")
+        //     $(div).css("margin-top", "5%")
+        //     $(div).css("text-align", "center")
+        //     if (i == 0) {
+        //         $(div).html("<b>Zarządzanie Operacyjne</b>")
+        //         $(div).css("margin-top", "5%")
+        //     } else if (i == 1) {
+        //         $(div).css("color", "rgb(0,0,0)")
+        //         $(div).html("<b>sme4u.eu</b>")
+        //         $(div).on("click", () => {
+        //             window.location.href = "https://sme4u.eu"
+        //         })
+        //     } else {
+        //         $(div).html("<b>Konsulting Projekty</b>")
+        //     }
+        //     $("#adV").append(div)
+        // }
     }
     userScreen() {
         roomsU.tN()
